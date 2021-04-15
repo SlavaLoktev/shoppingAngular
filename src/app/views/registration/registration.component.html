@@ -1,0 +1,50 @@
+<app-header></app-header>
+<div class="container authentication-form">
+    <div class="row head">
+        <span class="structure">Главная страница > Регистрация и авторизация</span>
+        <b class="headline">Регистрация</b>
+    </div>
+    <div class="row main">
+        <div class="col-lg-7 col-md-6 col-xs-6">
+            <form action="">
+
+                <div class="row form-table input-place input-place-reg">
+                    <span class="row-info">Номер телефона</span>
+                    <input type="text" name="username" placeholder="+79123456789" required>
+                </div>
+                <div class="row form-table input-place input-place-reg">
+                    <span class="row-info">Пароль</span>
+                    <input type="password" name="password" placeholder="" required>
+                </div>
+                <div class="row form-table input-place input-place-reg">
+                    <span class="row-info">Подтверждение пароля</span>
+                    <input type="password" name="password" placeholder="" required>
+                </div>
+                <div class="row form-table input-place input-place-reg">
+                    <span class="row-info">E-mail</span>
+                    <input type="" name="email" placeholder="E-mail" required>
+                </div>
+                <div class="row form-table input-place input-place-reg">
+                    <span class="row-info">Имя</span>
+                    <input type="" name="first-name" placeholder="Имя" required>
+                </div>
+                <div class="row form-table input-place input-place-reg">
+                    <span class="row-info">Фамилия</span>
+                    <input type="" name="last-name" placeholder="Фамилия" required>
+                </div>
+                <div class="row form-table input-place input-button">
+                    <input type="submit" value="Войти">
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-5 col-md-6 col-xs-6">
+            <div class="advise">
+                <p>Мы гарантируем сохранность ваших личных данных.</p>
+                <p><i class="fa fa-heart-o fa-lg button-icon" aria-hidden="true"></i> Добавляйте товар в список желаний</p>
+                <p><i class="fa fa-shopping-cart fa-lg button-icon" aria-hidden="true"></i> Добавляйте товар в корзину</p>
+                <span><a routerLink="/authentication" class="registration-link">Авторизация</a></span>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

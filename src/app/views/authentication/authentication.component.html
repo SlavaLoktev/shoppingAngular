@@ -1,0 +1,33 @@
+<app-header></app-header>
+<div class="container authentication-form">
+    <div class="row head">
+        <span class="structure">Главная страница > Регистрация и авторизация</span>
+        <b class="headline">Авторизация</b>
+    </div>
+    <div class="row main">
+        <div class="col-lg-7 col-md-6 col-xs-6">
+            <form action="">
+                <div class="row form-table">
+                    <b style="text-align:center">Вход</b>
+                </div>
+                <div class="row form-table input-place">
+                    <input type="text" name="username" placeholder="+79123456789 или name@mail.ru" required>
+                </div>
+                <div class="row form-table input-place">
+                    <input type="password" name="password" placeholder="Пароль" required>
+                </div>
+                <div class="row form-table input-place input-button">
+                    <input type="submit" value="Войти">
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-5 col-md-6 col-xs-6">
+            <div class="advise">
+                <p>Нет аккаунта? <a routerLink="/registration" class="registration-link">Регистрируйтесь!</a></p>
+                <p>Получайте бонусы, экономьте деньги и <br>время при следующих покупках.</p>
+                <p>Регистрация займет всего пару минут.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
