@@ -13,6 +13,7 @@ import { ManCatalogComponent } from './views/man-catalog/man-catalog.component';
 import { KidCatalogComponent } from './views/kid-catalog/kid-catalog.component';
 import { AuthenticationComponent } from './views/authentication/authentication.component';
 import { RegistrationComponent } from './views/registration/registration.component';
+import { ProductCardComponent } from './views/product-card/product-card.component';
 
 @NgModule({
     declarations: [
@@ -24,7 +25,8 @@ import { RegistrationComponent } from './views/registration/registration.compone
         ManCatalogComponent,
         KidCatalogComponent,
         AuthenticationComponent,
-        RegistrationComponent
+        RegistrationComponent,
+        ProductCardComponent
     ],
     imports: [
         BrowserModule,

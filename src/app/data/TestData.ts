@@ -96,6 +96,150 @@ export class TestData {
             description: 'rfwwrvwju',
             category: TestData.categories[11],
             attrValue: TestData.attrValues[1]
+        },
+        {
+            productId: 6,
+            productName: 'ботинки мужские',
+            storageUnit: 'пар',
+            price: 4999,
+            description: 'adsadsa',
+            category: TestData.categories[8],
+            attrValue: TestData.attrValues[1]
+        },
+        {
+            productId: 7,
+            productName: 'ботинки мужские',
+            storageUnit: 'пар',
+            price: 4999,
+            description: 'adsadsa',
+            category: TestData.categories[8],
+            attrValue: TestData.attrValues[1]
+        },
+        {
+            productId: 8,
+            productName: 'ботинки мужские',
+            storageUnit: 'пар',
+            price: 4999,
+            description: 'adsadsa',
+            category: TestData.categories[8],
+            attrValue: TestData.attrValues[1]
+        },
+        {
+            productId: 9,
+            productName: 'ботинки мужские',
+            storageUnit: 'пар',
+            price: 4999,
+            description: 'adsadsa',
+            category: TestData.categories[8],
+            attrValue: TestData.attrValues[1]
+        },
+        {
+            productId: 10,
+            productName: 'ботинки мужские',
+            storageUnit: 'пар',
+            price: 4999,
+            description: 'adsadsa',
+            category: TestData.categories[8],
+            attrValue: TestData.attrValues[1]
+        },
+        {
+            productId: 11,
+            productName: 'ботинки мужские',
+            storageUnit: 'пар',
+            price: 4999,
+            description: 'adsadsa',
+            category: TestData.categories[8],
+            attrValue: TestData.attrValues[1]
+        },
+        {
+            productId: 12,
+            productName: 'ботинки мужские',
+            storageUnit: 'пар',
+            price: 4999,
+            description: 'adsadsa',
+            category: TestData.categories[8],
+            attrValue: TestData.attrValues[1]
+        },
+        {
+            productId: 13,
+            productName: 'ботинки мужские',
+            storageUnit: 'пар',
+            price: 4999,
+            description: 'adsadsa',
+            category: TestData.categories[8],
+            attrValue: TestData.attrValues[1]
+        },
+        {
+            productId: 14,
+            productName: 'ботинки мужские',
+            storageUnit: 'пар',
+            price: 4999,
+            description: 'adsadsa',
+            category: TestData.categories[8],
+            attrValue: TestData.attrValues[1]
+        },
+        {
+            productId: 15,
+            productName: 'ботинки мужские',
+            storageUnit: 'пар',
+            price: 4999,
+            description: 'adsadsa',
+            category: TestData.categories[8],
+            attrValue: TestData.attrValues[1]
+        },
+        {
+            productId: 16,
+            productName: 'ботинки мужские',
+            storageUnit: 'пар',
+            price: 4999,
+            description: 'adsadsa',
+            category: TestData.categories[8],
+            attrValue: TestData.attrValues[1]
+        },
+        {
+            productId: 17,
+            productName: 'ботинки мужские',
+            storageUnit: 'пар',
+            price: 4999,
+            description: 'adsadsa',
+            category: TestData.categories[8],
+            attrValue: TestData.attrValues[1]
+        },
+        {
+            productId: 18,
+            productName: 'ботинки мужские',
+            storageUnit: 'пар',
+            price: 4999,
+            description: 'adsadsa',
+            category: TestData.categories[8],
+            attrValue: TestData.attrValues[1]
+        },
+        {
+            productId: 19,
+            productName: 'ботинки мужские',
+            storageUnit: 'пар',
+            price: 4999,
+            description: 'adsadsa',
+            category: TestData.categories[8],
+            attrValue: TestData.attrValues[1]
+        },
+        {
+            productId: 20,
+            productName: 'ботинки мужские',
+            storageUnit: 'пар',
+            price: 4999,
+            description: 'adsadsa',
+            category: TestData.categories[8],
+            attrValue: TestData.attrValues[1]
+        },
+        {
+            productId: 21,
+            productName: 'ботинки мужские',
+            storageUnit: 'пар',
+            price: 4999,
+            description: 'adsadsa',
+            category: TestData.categories[8],
+            attrValue: TestData.attrValues[1]
         }
     ];
 
