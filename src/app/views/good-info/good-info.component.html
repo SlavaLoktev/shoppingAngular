@@ -1,0 +1,84 @@
+<div class="container" *ngFor="let goodInfoCard of goodInfoCards">
+    <div class="row main-info">
+        <div class="col-8">
+            <div class="card-image-place">
+                <div class="slider swiper-container">
+                    <div class="swiper-wrapper">
+                        <section class="slide slide-1 swiper-slide">
+
+                        </section>
+                        <section class="slide slide-2 swiper-slide">
+
+                        </section>
+                        <section class="slide slide-1 swiper-slide">
+
+                        </section>
+                    </div>
+                    <div class="slider-nav">
+                        <div class="container">
+                            <div class="row justify-content-between">
+                                <div class="col-1">
+                                    <button class="slider-button slider-button-prev">
+                                        <img src="assets/img/arrow-prev.svg" alt="icon: arrow-prev">
+                                    </button>
+                                </div>
+                                <div class="col-1">
+                                    <button class="slider-button slider-button-next">
+                                        <img src="assets/img/arrow-next.svg" alt="icon: arrow-next">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <p class="good-name-main">{{goodInfoCard.productName}}</p>
+            <span class="good-vendor-main">арт. W8269008</span><br>
+            <span class="good-price-main">{{goodInfoCard.price}} &#8381;</span>
+            <hr>
+            <br>
+            <button type="button" class="collapsible">Размер</button>
+            <div class="content-filter">
+                <div class="variables">
+                    <label class="container">36
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">37
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">38
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">39
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">40
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">41
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <div class="add-to-favorite">
+                <button type="button" class="button-filter">Добавить в избранное <i class="fa fa-heart-o fa-lg button-icon" aria-hidden="true"></i></button>
+            </div>
+            <div class="add-to-shopping-cart">
+                <button type="button" class="button-filter">Добавить в корзину <i class="fa fa-shopping-cart fa-lg button-icon" aria-hidden="true"></i></button>
+            </div>
+        </div>
+        <div class="row secondary-info">
+
+        </div>
+    </div>
+</div>

@@ -7,6 +7,7 @@ import {ManCatalogComponent} from './views/man-catalog/man-catalog.component';
 import {KidCatalogComponent} from './views/kid-catalog/kid-catalog.component';
 import {AuthenticationComponent} from './views/authentication/authentication.component';
 import {RegistrationComponent} from './views/registration/registration.component';
+import {GoodInfoComponent} from './views/good-info/good-info.component';
 
 const routes: Routes = [
     {path: '', component: HomeComponent},
@@ -14,7 +15,8 @@ const routes: Routes = [
     {path: 'manCatalog', component: ManCatalogComponent},
     {path: 'kidCatalog', component: KidCatalogComponent},
     {path: 'authentication', component: AuthenticationComponent},
-    {path: 'registration', component: RegistrationComponent}
+    {path: 'registration', component: RegistrationComponent},
+    {path: 'goodInfo', component: GoodInfoComponent}
 ];
 
 @NgModule({

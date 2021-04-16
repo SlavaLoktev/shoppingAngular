@@ -14,6 +14,7 @@ import { KidCatalogComponent } from './views/kid-catalog/kid-catalog.component';
 import { AuthenticationComponent } from './views/authentication/authentication.component';
 import { RegistrationComponent } from './views/registration/registration.component';
 import { ProductCardComponent } from './views/product-card/product-card.component';
+import { GoodInfoComponent } from './views/good-info/good-info.component';
 
 @NgModule({
     declarations: [
@@ -26,7 +27,8 @@ import { ProductCardComponent } from './views/product-card/product-card.componen
         KidCatalogComponent,
         AuthenticationComponent,
         RegistrationComponent,
-        ProductCardComponent
+        ProductCardComponent,
+        GoodInfoComponent
     ],
     imports: [
         BrowserModule,
