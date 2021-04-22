@@ -70,7 +70,7 @@ export class TestData {
         },
         {
             productId: 3,
-            productName: 'кроссовки мужские',
+            productName: 'кроссовки муж со скидкой',
             storageUnit: 'пар',
             price: 5000,
             discountPrice: 4000,
@@ -80,7 +80,7 @@ export class TestData {
         },
         {
             productId: 4,
-            productName: 'лоферы женские',
+            productName: 'лоферы женские со скидкой',
             storageUnit: 'пар',
             price: 6000,
             discountPrice: 5500,
@@ -129,6 +129,7 @@ export class TestData {
             productName: 'ботинки мужские',
             storageUnit: 'пар',
             price: 4999,
+            discountPrice: 3000,
             description: 'adsadsa',
             category: TestData.categories[8],
             attrValue: TestData.attrValues[1]

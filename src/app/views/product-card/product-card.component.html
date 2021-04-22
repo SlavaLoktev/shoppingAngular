@@ -6,7 +6,8 @@
             <h3 class="goods-title">{{productCard.productName}}</h3>
             <i class="fa fa-heart-o fa-lg heart-icon" aria-hidden="true"></i>
             <p class="goods-description">{{productCard.description}}</p>
-            <span class="goods-price">{{productCard.price}} &#8381;</span>
+            <span class="goods-price">{{productCard.price}} &#8381;</span><br>
+            <span style="color: #E31E25" class="goods-price">{{productCard.discountPrice ? productCard.discountPrice + "&#8381;" : ""}}</span>
             <i class="fa fa-shopping-cart fa-lg shopping-cart-icon" aria-hidden="true"></i>
         </a>
     </div>
