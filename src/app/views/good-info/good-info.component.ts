@@ -14,7 +14,7 @@ export class GoodInfoComponent implements OnInit {
   constructor(private dataHandler: DataHandlerService) { }
 
   ngOnInit(): void {
-    this.goodInfoCards = this.dataHandler.getProductCards();
+    //  this.goodInfoCards = this.dataHandler.getProductCards();
   }
 
 }

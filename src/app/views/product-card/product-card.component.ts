@@ -14,8 +14,7 @@ export class ProductCardComponent implements OnInit {
   constructor(private dataHandler: DataHandlerService) { }
 
   ngOnInit(): void {
-    this.productCards = this.dataHandler.getProductCards();
-    // console.log(this.productCards);
+    this.dataHandler.productsSubject.subscribe(productCards => this.productCards = productCards);
   }
 
 }

@@ -12,70 +12,25 @@
                 <li class="navigation-item">
                     <a routerLink="/womanCatalog" class="navigation-link">Женщины</a>
                     <ul class="sub-category-list">
-                        <li><a href="#" class="sub-category-link">Балетки</a></li>
-                        <li><a href="#" class="sub-category-link">Босоножки</a></li>
-                        <li><a href="#" class="sub-category-link">Ботильоны</a></li>
-                        <li><a href="#" class="sub-category-link">Ботинки</a></li>
-                        <li><a href="#" class="sub-category-link">Ботфорты</a></li>
-                        <li><a href="#" class="sub-category-link">Дутики</a></li>
-                        <li><a href="#" class="sub-category-link">Кеды</a></li>
-                        <li><a href="#" class="sub-category-link">Кроссовки</a></li>
-                        <li><a href="#" class="sub-category-link">Лоферы</a></li>
-                        <li><a href="#" class="sub-category-link">Мокасины</a></li>
-                        <li><a href="#" class="sub-category-link">Полуботинки</a></li>
-                        <li><a href="#" class="sub-category-link">Полусапоги</a></li>
-                        <li><a href="#" class="sub-category-link">Резиновая обувь</a></li>
-                        <li><a href="#" class="sub-category-link">Сабо</a></li>
-                        <li><a href="#" class="sub-category-link">Сандалии</a></li>
-                        <li><a href="#" class="sub-category-link">Сапоги</a></li>
-                        <li><a href="#" class="sub-category-link">Слипоны</a></li>
-                        <li><a href="#" class="sub-category-link">Сникерсы</a></li>
-                        <li><a href="#" class="sub-category-link">Спортивная обувь</a></li>
-                        <li><a href="#" class="sub-category-link">Туфли</a></li>
-                        <li><a href="#" class="sub-category-link">Шлепанцы и тапочки</a></li>
-                        <li><a href="#" class="sub-category-link">Эспадрильи</a></li>
+                        <li routerLink="/womanCatalog" *ngFor="let category of categories" (click)="showProductCardsByCategory(category)"><a class="sub-category-link">{{category.categoryName}}</a></li>
                     </ul>
                 </li>
                 <li class="navigation-item">
                     <a routerLink="/manCatalog" class="navigation-link">Мужчины</a>
                     <ul class="sub-category-list">
-                        <li><a href="#" class="sub-category-link">Ботинки</a></li>
-                        <li><a href="#" class="sub-category-link">Кеды</a></li>
-                        <li><a href="#" class="sub-category-link">Кроссовки</a></li>
-                        <li><a href="#" class="sub-category-link">Мокасины</a></li>
-                        <li><a href="#" class="sub-category-link">Полуботинки</a></li>
-                        <li><a href="#" class="sub-category-link">Полусапоги</a></li>
-                        <li><a href="#" class="sub-category-link">Сандалии</a></li>
-                        <li><a href="#" class="sub-category-link">Сапоги</a></li>
-                        <li><a href="#" class="sub-category-link">Слипоны</a></li>
-                        <li><a href="#" class="sub-category-link">Спортивная обувь</a></li>
-                        <li><a href="#" class="sub-category-link">Тапочки и Шлепанцы</a></li>
-                        <li><a href="#" class="sub-category-link">Туфли</a></li>
+                        <li routerLink="/manCatalog" *ngFor="let category of categories"><a class="sub-category-link">{{category.categoryName}}</a></li>
                     </ul>
                 </li>
                 <li class="navigation-item">
                     <a routerLink="/kidCatalog" class="navigation-link">Дети</a>
                     <ul class="sub-category-list">
-                        <li><a href="#" class="sub-category-link">кроссовки</a></li>
-                        <li><a href="#" class="sub-category-link">ботильоны</a></li>
-                        <li><a href="#" class="sub-category-link">балетки</a></li>
-                        <li><a href="#" class="sub-category-link">ботильоны</a></li>
-                        <li><a href="#" class="sub-category-link">ботильоны</a></li>
-                        <li><a href="#" class="sub-category-link">ботильоны</a></li>
-                        <li><a href="#" class="sub-category-link">ботильоны</a></li>
+                        <li routerLink="/kidCatalog" *ngFor="let category of categories"><a class="sub-category-link">{{category.categoryName}}</a></li>
                     </ul>
                 </li>
                 <li class="navigation-item">
                     <a href="#" class="navigation-link">Аксессуары</a>
                     <ul class="sub-category-list">
-                        <li><a href="#" class="sub-category-link">кроссовки</a></li>
-                        <li><a href="#" class="sub-category-link">ботильоны</a></li>
-                        <li><a href="#" class="sub-category-link">балетки</a></li>
-                        <li><a href="#" class="sub-category-link">ботильоны</a></li>
-                        <li><a href="#" class="sub-category-link">ботильоны</a></li>
-                        <li><a href="#" class="sub-category-link">ботильоны</a></li>
-                        <li><a href="#" class="sub-category-link">ботильоны</a></li>
-                        <li><a href="#" class="sub-category-link">ботильоны</a></li>
+                        <li *ngFor="let category of categories"><a class="sub-category-link">{{category.categoryName}}</a></li>
                     </ul>
                 </li>
 
