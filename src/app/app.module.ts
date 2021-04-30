@@ -15,6 +15,7 @@ import { AuthenticationComponent } from './views/authentication/authentication.c
 import { RegistrationComponent } from './views/registration/registration.component';
 import { ProductCardComponent } from './views/product-card/product-card.component';
 import { GoodInfoComponent } from './views/good-info/good-info.component';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 
 @NgModule({
     declarations: [
@@ -32,7 +33,8 @@ import { GoodInfoComponent } from './views/good-info/good-info.component';
     ],
     imports: [
         BrowserModule,
-        AppRoutingModule
+        AppRoutingModule,
+        // HttpClientModule нужно подключить по заданию
     ],
     providers: [],
     bootstrap: [AppComponent]
