@@ -1,36 +1,22 @@
-import { Injectable } from '@angular/core';
+import {Inject, Injectable, InjectionToken} from '@angular/core';
 import {ReviewsDAO} from '../interface/ReviewsDAO';
 import {HttpClient} from '@angular/common/http';
 import {Category} from '../../../model/Category';
 import {Observable} from 'rxjs';
 import {Reviews} from '../../../model/Reviews';
+import {CommonService} from './CommonService';
+import {CATEGORY_URL_TOKEN} from './CategoryService';
+
+export const REVIEWS_URL_TOKEN = new InjectionToken<string>('url');
 
 @Injectable({
   providedIn: 'root'
 })
-export class ReviewsService implements ReviewsDAO{
+export class ReviewsService extends CommonService<Reviews> implements ReviewsDAO{
 
-  url = 'http://localhost:8080/reviews';
-
-  constructor(private httpClient: HttpClient) { }
-
-  add(t: Reviews): Observable<Reviews> {
-    return this.httpClient.post<Reviews>(this.url + '/add', t);
-  }
-
-  delete(id: number): Observable<Reviews> {
-    return this.httpClient.delete<Reviews>(this.url + '/delete/' + id);
-  }
-
-  findById(id: number): Observable<Reviews> {
-    return this.httpClient.get<Reviews>(this.url + '/id/' + id);
-  }
-
-  findAll(): Observable<Reviews[]> {
-    return this.httpClient.get<Reviews[]>(this.url + '/all');
-  }
-
-  update(t: Reviews): Observable<Reviews> {
-    return this.httpClient.put<Reviews>(this.url + '/update', t);
+  constructor(@Inject(REVIEWS_URL_TOKEN) private baseUrl,
+              private http: HttpClient // для выполнения HTTP запросов
+  ) {
+    super(baseUrl, http);
   }
 }

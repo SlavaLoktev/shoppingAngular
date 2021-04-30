@@ -16,6 +16,13 @@ import { RegistrationComponent } from './views/registration/registration.compone
 import { ProductCardComponent } from './views/product-card/product-card.component';
 import { GoodInfoComponent } from './views/good-info/good-info.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {CATEGORY_URL_TOKEN} from './data/dao/impl/CategoryService';
+import {PRODUCT_URL_TOKEN} from './data/dao/impl/ProductService';
+import {ATTRIBUTE_URL_TOKEN} from './data/dao/impl/AttributeService';
+import {ATTRVALUE_URL_TOKEN} from './data/dao/impl/AttrValueService';
+import {CUSTOMERS_URL_TOKEN} from './data/dao/impl/CustomersService';
+import {DEPARTMENT_URL_TOKEN} from './data/dao/impl/DepartmentService';
+import {REVIEWS_URL_TOKEN} from './data/dao/impl/ReviewsService';
 
 @NgModule({
     declarations: [
@@ -36,7 +43,36 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
         AppRoutingModule,
         // HttpClientModule нужно подключить по заданию
     ],
-    providers: [],
+    providers: [
+        {
+            provide: PRODUCT_URL_TOKEN,
+            useValue: 'http://localhost:8080/product'
+        },
+        {
+            provide: ATTRIBUTE_URL_TOKEN,
+            useValue: 'http://localhost:8080/attribute'
+        },
+        {
+            provide: ATTRVALUE_URL_TOKEN,
+            useValue: 'http://localhost:8080/attrvalue'
+        },
+        {
+            provide: CATEGORY_URL_TOKEN,
+            useValue: 'http://localhost:8080/category'
+        },
+        {
+            provide: CUSTOMERS_URL_TOKEN,
+            useValue: 'http://localhost:8080/customers'
+        },
+        {
+            provide: DEPARTMENT_URL_TOKEN,
+            useValue: 'http://localhost:8080/department'
+        },
+        {
+            provide: REVIEWS_URL_TOKEN,
+            useValue: 'http://localhost:8080/reviews'
+        }
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
