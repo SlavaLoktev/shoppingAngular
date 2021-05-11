@@ -1,7 +1,7 @@
 import {Inject, Injectable, InjectionToken} from '@angular/core';
 import {ProductDAO} from '../interface/ProductDAO';
 import {HttpClient} from '@angular/common/http';
-import {CategorySearchValues, ProductSearchValues} from '../search/SearchObjects';
+import {CategorySearchValues, ProductSearchValues, ProductSearchValuesWithoutPaging} from '../search/SearchObjects';
 import {Observable} from 'rxjs';
 import {Category} from '../../../model/Category';
 import {Product} from '../../../model/Product';
@@ -23,5 +23,9 @@ export class ProductService extends CommonService<Product> implements ProductDAO
 
   findProducts(productSearchValues: ProductSearchValues): Observable<Product[]> {
     return this.http.post<Product[]>(this.baseUrl + '/search', productSearchValues);
+  }
+
+  findProductsWithoutPaging(productSearchValuesWithoutPaging: ProductSearchValuesWithoutPaging): Observable<Product[]> {
+    return this.http.post<Product[]>(this.baseUrl + '/searchWithoutPaging', productSearchValuesWithoutPaging);
   }
 }

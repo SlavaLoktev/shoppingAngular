@@ -316,6 +316,7 @@ html{
     padding-top: 45px;
     padding-bottom: 40px;
     color:#fff;
+    margin-top: 30px;
 }
 
 .footer-menu-item:not(:last-child){
@@ -878,4 +879,14 @@ html{
 
 .authentication-form{
     margin-bottom: 25px;
+}
+
+.link {
+    text-decoration: underline;
+    cursor: pointer;
+    opacity: .25;
+}
+
+.mat-form-field{
+    width: 100%;
 }

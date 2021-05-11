@@ -15,3 +15,9 @@ export class ProductSearchValues {
     sortColumn = 'productName';
     sortDirection  = 'asc';
 }
+
+export class ProductSearchValuesWithoutPaging {
+
+    productName = '';
+    price: number = null;
+}

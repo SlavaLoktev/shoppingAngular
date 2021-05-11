@@ -1,14 +1,21 @@
 <div class="row">
-    <div class="col-lg-3 col-sm-6" *ngFor="let productCard of productCards">
+    <div class="" *ngIf="showCRUD">
+        <button mat-raised-button (click)="openAddDialog()" class="btn btn-outline-danger">Добавить товар</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-3 col-sm-6" *ngFor="let product of products">
         <a routerLink="/goodInfo" class="goods-card">
             <span class="label">New</span>
             <img src="assets/img/woman_shoe_card_image.png" alt="image: woman-shoe" class="goods-image-catalog">
-            <h3 class="goods-title">{{productCard.productName}}</h3>
+            <h3 class="goods-title">{{product.productName}}</h3>
             <i class="fa fa-heart-o fa-lg heart-icon" aria-hidden="true"></i>
-            <p class="goods-description">{{productCard.description}}</p>
-            <span class="goods-price">{{productCard.price}} &#8381;</span><br>
-            <span style="color: #E31E25" class="goods-price">{{productCard.discountPrice ? productCard.discountPrice + "&#8381;" : ""}}</span>
+            <p class="goods-description">{{product.description}}</p>
+            <span class="goods-price">{{product.price}} &#8381;</span><br>
+            <span style="color: #E31E25" class="goods-price">{{product.discountPrice ? product.discountPrice + "&#8381;" : ""}}</span>
             <i class="fa fa-shopping-cart fa-lg shopping-cart-icon" aria-hidden="true"></i>
         </a>
+        <button mat-icon-button (click)="openEditDialog(product)" *ngIf="showCRUD"><mat-icon aria-hidden="false">edit</mat-icon></button>
+        <button mat-icon-button (click)="openDeleteDialog(product)" *ngIf="showCRUD"><mat-icon aria-hidden="false">delete</mat-icon></button>
     </div>
 </div>

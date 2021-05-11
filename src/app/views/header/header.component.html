@@ -10,15 +10,24 @@
         <div class="collapse navbar-collapse" id="navbarContent">
             <ul class="navbar-nav mr-auto mb-2 navigation align-items-center">
                 <li class="navigation-item">
-                    <a routerLink="/womanCatalog" class="navigation-link">Женщины</a>
+                    <a (click)="showCategory('женские')" routerLink="/womanCatalog" class="navigation-link">Женщины</a>
                     <ul class="sub-category-list">
-                        <li routerLink="/womanCatalog" *ngFor="let category of categories" (click)="showProductCardsByCategory(category)"><a class="sub-category-link">{{category.categoryName}}</a></li>
+                        <li (click)="showCategory('балетки женские')" routerLink="/womanCatalog" ><a class="sub-category-link">Балетки</a></li>
+                        <li (click)="showCategory('босоножки женские')" routerLink="/womanCatalog" ><a class="sub-category-link">Босоножки</a></li>
+                        <li (click)="showCategory('ботильоны женские')" routerLink="/womanCatalog" ><a class="sub-category-link">Ботильоны</a></li>
+                        <li (click)="showCategory('ботинки женские')" routerLink="/womanCatalog" ><a class="sub-category-link">Ботинки</a></li>
+                        <li (click)="showCategory('ботфорты женские')" routerLink="/womanCatalog" ><a class="sub-category-link">Ботфорты</a></li>
+                        <li (click)="showCategory('дутики женские')" routerLink="/womanCatalog" ><a class="sub-category-link">Дутики</a></li>
+                        <li (click)="showCategory('кеды женские')" routerLink="/womanCatalog" ><a class="sub-category-link">Кеды</a></li>
+                        <li (click)="showCategory('кроссовки женские')" routerLink="/womanCatalog" ><a class="sub-category-link">Кроссовки</a></li>
+                        <li (click)="showCategory('лоферы женские')" routerLink="/womanCatalog" ><a class="sub-category-link">Лоферы</a></li>
+                        <li (click)="showCategory('мокасины женские')" routerLink="/womanCatalog" ><a class="sub-category-link">Мокасины</a></li>
                     </ul>
                 </li>
                 <li class="navigation-item">
                     <a routerLink="/manCatalog" class="navigation-link">Мужчины</a>
                     <ul class="sub-category-list">
-                        <li routerLink="/manCatalog" *ngFor="let category of categories"><a class="sub-category-link">{{category.categoryName}}</a></li>
+                        <li (mouseenter)="search()" routerLink="/manCatalog" *ngFor="let category of categories" (click)="showProductCardsByCategory(category)"><a class="sub-category-link">{{category.categoryName}}</a></li>
                     </ul>
                 </li>
                 <li class="navigation-item">
@@ -37,10 +46,10 @@
 
 
 
-                <form action="" class="d-flex search">
-                    <input type="search" placeholder="Я хочу найти..." class="form-control me-2">
-                    <button class="btn btn-outline-danger">Поиск</button>
-                </form>
+                <div class="d-flex">
+                    <span class="link navigation-link" (click)="onToggleCRUD()" *ngIf="showCRUD">admin mode: off</span>
+                    <span class="link navigation-link" (click)="onToggleCRUD()" *ngIf="!showCRUD">admin mode: on</span>
+                </div>
             </ul>
 
 

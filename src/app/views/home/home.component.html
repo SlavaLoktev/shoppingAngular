@@ -1,4 +1,8 @@
-<app-header></app-header>
+<app-header
+        (searchCategory)="searchCategory($event)"
+
+        [categories]="categories"
+></app-header>
 <div class="slider swiper-container">
     <div class="swiper-wrapper">
         <section class="slide slide-1 swiper-slide">

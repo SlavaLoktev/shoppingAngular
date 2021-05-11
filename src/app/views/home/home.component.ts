@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import Swiper from 'swiper';
+import {Category} from '../../model/Category';
+import {CategoryService} from '../../data/dao/impl/CategoryService';
+import {Department} from '../../model/Department';
+import {CategorySearchValues} from '../../data/dao/search/SearchObjects';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +12,16 @@ import Swiper from 'swiper';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  categories: Category[];
+
+  constructor(private categoryService: CategoryService) { }
+
+  searchCategory(categorySearchValues: CategorySearchValues): void{
+    this.categoryService.findCategories(categorySearchValues).subscribe(result => {
+      this.categories = result;
+      console.log(result);
+    });
+  }
 
   slider(): void{
     const swiper = new Swiper('.swiper-container', {
@@ -29,6 +42,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.slider();
+    // this.searchCategory(catego);
   }
 
 }

@@ -23,6 +23,19 @@ import {ATTRVALUE_URL_TOKEN} from './data/dao/impl/AttrValueService';
 import {CUSTOMERS_URL_TOKEN} from './data/dao/impl/CustomersService';
 import {DEPARTMENT_URL_TOKEN} from './data/dao/impl/DepartmentService';
 import {REVIEWS_URL_TOKEN} from './data/dao/impl/ReviewsService';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {FormsModule} from '@angular/forms';
+import { EditProductDialogComponent } from './dialog/edit-product-dialog/edit-product-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatOptionModule} from '@angular/material/core';
+import {MatIconModule} from '@angular/material/icon';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatSelectModule} from '@angular/material/select';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { ConfirmDialogComponent } from './dialog/confirm-dialog/confirm-dialog.component';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
     declarations: [
@@ -36,12 +49,25 @@ import {REVIEWS_URL_TOKEN} from './data/dao/impl/ReviewsService';
         AuthenticationComponent,
         RegistrationComponent,
         ProductCardComponent,
-        GoodInfoComponent
+        GoodInfoComponent,
+        EditProductDialogComponent,
+        ConfirmDialogComponent
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
-        // HttpClientModule нужно подключить по заданию
+        HttpClientModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        MatDialogModule,
+        MatOptionModule,
+        MatIconModule,
+        MatFormFieldModule,
+        FormsModule,
+        MatInputModule,
+        MatButtonModule,
+        MatOptionModule,
+        MatSelectModule
     ],
     providers: [
         {
@@ -72,6 +98,10 @@ import {REVIEWS_URL_TOKEN} from './data/dao/impl/ReviewsService';
             provide: REVIEWS_URL_TOKEN,
             useValue: 'http://localhost:8080/reviews'
         }
+    ],
+    entryComponents: [
+        EditProductDialogComponent,
+        ConfirmDialogComponent
     ],
     bootstrap: [AppComponent]
 })
