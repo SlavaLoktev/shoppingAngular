@@ -36,6 +36,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { ConfirmDialogComponent } from './dialog/confirm-dialog/confirm-dialog.component';
 import {MatTableModule} from '@angular/material/table';
+import { ReadProductDialogComponent } from './dialog/read-product-dialog/read-product-dialog.component';
 
 @NgModule({
     declarations: [
@@ -51,7 +52,8 @@ import {MatTableModule} from '@angular/material/table';
         ProductCardComponent,
         GoodInfoComponent,
         EditProductDialogComponent,
-        ConfirmDialogComponent
+        ConfirmDialogComponent,
+        ReadProductDialogComponent
     ],
     imports: [
         BrowserModule,

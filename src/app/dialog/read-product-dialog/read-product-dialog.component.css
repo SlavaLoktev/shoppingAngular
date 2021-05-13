@@ -1,0 +1,27 @@
+@media (min-width: 767px)  {
+    .read-product-dialog{
+        width: 600px;
+    }
+}
+
+@media (min-width: 992px)  {
+    .read-product-dialog{
+        width: 700px;
+    }
+}
+
+@media (min-width: 1200px)  {
+    .read-product-dialog{
+        width: 900px;
+    }
+}
+
+@media (min-width: 1400px)  {
+    .read-product-dialog{
+        width: 1000px;
+    }
+}
+
+
+
+

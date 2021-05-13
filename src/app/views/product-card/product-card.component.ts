@@ -9,6 +9,7 @@ import {AttrValue} from '../../model/AttrValue';
 import {DialogAction} from '../../object/DialogResult';
 import {ConfirmDialogComponent} from '../../dialog/confirm-dialog/confirm-dialog.component';
 import {CategoryService} from '../../data/dao/impl/CategoryService';
+import {ReadProductDialogComponent} from '../../dialog/read-product-dialog/read-product-dialog.component';
 
 @Component({
   selector: 'app-product-card',
@@ -101,7 +102,7 @@ export class ProductCardComponent implements OnInit {
     // this.dataHandler.productsSubject.subscribe(productCards => this.productCards = productCards);
     // this.searchProducts(this.productSearchValues);
     // this.findProductsAll();
-     this.findProductsWithoutPaging(this.productSearchValuesWithoutPaging);
+    this.findProductsWithoutPaging(this.productSearchValuesWithoutPaging);
   }
 
   // диалоговое окно для добавления задачи
@@ -130,7 +131,7 @@ export class ProductCardComponent implements OnInit {
   // диалоговое окно редактирования для добавления товара
   openEditDialog(product: Product): void {
     const dialogRef = this.dialog.open(EditProductDialogComponent, {
-      data: [product, 'Редактирование задачи', this.categories],
+      data: [product, 'Редактирование товара', this.categories],
       autoFocus: false
     });
 
@@ -156,7 +157,7 @@ export class ProductCardComponent implements OnInit {
   openDeleteDialog(product: Product): void {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       maxWidth: '500px',
-      data: {dialogTitle: 'Подтвердите действие', message: `Вы действительно хотите удалить задачу: "${product.productName}"?`},
+      data: {dialogTitle: 'Подтвердите действие', message: `Вы действительно хотите удалить товар: "${product.productName}"?`},
       autoFocus: false
     });
 
@@ -168,6 +169,20 @@ export class ProductCardComponent implements OnInit {
 
       if (result.action === DialogAction.OK) { // если нажали ОК
         this.deleteProduct.emit(product);
+      }
+    });
+  }
+
+  openReadDialog(product: Product): void {
+    const dialogRef = this.dialog.open(ReadProductDialogComponent, {
+      data: [product, 'Информация о товаре'],
+      autoFocus: false
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+      if (!(result)) { // если просто закрыли окно, ничего не нажав
+        return;
       }
     });
   }

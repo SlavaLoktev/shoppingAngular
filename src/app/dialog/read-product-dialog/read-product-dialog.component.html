@@ -1,0 +1,70 @@
+<mat-dialog-content class="read-product-dialog">
+    <span mat-dialog-title>{{dialogTitle}}</span>
+    <div class="row">
+        <div class="col-md-7 col-sm-12 left-product-read">
+            <img class="read-product-image" src="assets/img/woman_shoe_card_image.png">
+        </div>
+        <div class="col-md-5 col-sm-12 right-product-read">
+            <p class="good-name-main">{{product.productName}}</p>
+            <span class="good-vendor-main">арт. W8269008</span><br>
+            <span class="good-price-main">{{product.price}} &#8381;</span>
+            <span class="good-vendor-main" *ngIf="product.discountPrice">Цена по скидке:</span>
+            <span style="color: #E31E25" class="good-discount-price-main">{{product.discountPrice ? product.discountPrice + "&#8381;" : ""}}</span>
+            <span class="good-vendor-main" *ngIf="product.description">Информация о товаре:</span>
+            <span>{{product.description}}</span>
+            <hr>
+            <br>
+            <button type="button" class="collapsible">Размер</button>
+            <div class="content-filter">
+                <div class="variables">
+                    <label class="container">36
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">37
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">38
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">39
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">40
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">41
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <mat-dialog-actions>
+                <div class="add-to-favorite">
+                    <button type="button" class="button-filter">Добавить в избранное <i class="fa fa-heart-o fa-lg button-icon" aria-hidden="true"></i></button>
+                </div>
+                <div class="add-to-shopping-cart">
+                    <button type="button" class="button-filter">Добавить в корзину <i class="fa fa-shopping-cart fa-lg button-icon" aria-hidden="true"></i></button>
+                </div>
+            </mat-dialog-actions>
+        </div>
+    </div>
+</mat-dialog-content>
+
+
+<!--<mat-dialog-actions>-->
+<!--    <div class="row">-->
+<!--        <div class="col-md-6">-->
+<!--            <button type="button" class="button-filter">Добавить в избранное <i class="fa fa-heart-o fa-lg button-icon" aria-hidden="true"></i></button>-->
+<!--        </div>-->
+<!--        <div class="col-md-6">-->
+<!--            <button type="button" class="button-filter">Добавить в корзину <i class="fa fa-shopping-cart fa-lg button-icon" aria-hidden="true"></i></button>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</mat-dialog-actions>-->

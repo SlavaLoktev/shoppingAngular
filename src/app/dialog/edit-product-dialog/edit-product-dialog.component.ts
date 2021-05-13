@@ -104,9 +104,10 @@ export class EditProductDialogComponent implements OnInit {
     this.newDescription = this.product.description;
 
     // чтобы в html странице корректно работали выпадающие списки - лучше работать не с объектами, а с их id
-    if (this.product.category) {
-      this.newCategoryId = this.product.category.categoryId;
-      this.oldCategoryId = this.product.category.categoryId; // старое значение категории всегда будет храниться тут
+    if (this.product.categories) {
+      this.newCategoryId = this.product.categories.categoryId;
+      this.oldCategoryId = this.product.categories.categoryId; // старое значение категории всегда будет храниться тут
+      console.log('this.newCategoryId =' + this.product.categories.categoryId);
     }
 
 
@@ -120,9 +121,9 @@ export class EditProductDialogComponent implements OnInit {
     this.product.storageUnit = this.newStorageUnit;
     this.product.discountPrice = this.newDiscountPrice;
     this.product.description = this.newDescription;
-    this.product.category = this.findCategoryById(this.newCategoryId);
+    this.product.categories = this.findCategoryById(this.newCategoryId);
     this.product.oldCategory = this.findCategoryById(this.oldCategoryId); // TODO пофиксить категории
-    console.log(this.product.category);
+    console.log(this.product.categories);
     console.log(this.product);
     // передаем добавленную/измененную задачу в обработчик
     // что с ним будут делать - уже не задача этого компонента

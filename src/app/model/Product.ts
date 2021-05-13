@@ -9,7 +9,7 @@ export class Product {
     price: number;
     discountPrice?: number;
     description: string;
-    category: Category;
+    categories: Category;
     attrValue?: AttrValue;
     review?: Reviews;
 
@@ -17,14 +17,14 @@ export class Product {
 
 
     constructor(productId: number, productName: string, storageUnit: string, price: number, discountPrice: number, description: string,
-                category: Category, attrValue?: AttrValue, review?: Reviews, oldCategory?: Category) {
+                categories: Category, attrValue?: AttrValue, review?: Reviews, oldCategory?: Category) {
         this.productId = productId;
         this.productName = productName;
         this.storageUnit = storageUnit;
         this.price = price;
         this.discountPrice = discountPrice;
         this.description = description;
-        this.category = category;
+        this.categories = categories;
         this.attrValue = attrValue;
         this.review = review;
         this.oldCategory = oldCategory;
