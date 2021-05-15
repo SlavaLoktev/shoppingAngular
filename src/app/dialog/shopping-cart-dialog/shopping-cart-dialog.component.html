@@ -1,0 +1,24 @@
+<mat-dialog-content>
+    <span mat-dialog-title>{{dialogTitle}}</span>
+    <div *ngIf="product" class="row favorites-shopping-card">
+        <div (click)="openReadDialog(product)" class="col-2 div-favorites-shopping-card-image d-flex">
+            <img class="favorites-shopping-card-image" src="{{product.image}}">
+        </div>
+        <div (click)="openReadDialog(product)" class="col-8 div-favorites-shopping-card-text d-flex">
+            <div class="row">
+                <span class="d-inline-block favorites-shopping-card-name">{{product.productName}}</span>
+            </div>
+            <div class="row">
+                <span class="">Цена: {{product.price}}</span>
+                <span class="" *ngIf="product.discountPrice" style="color: #E31E25">Цена по скидке:{{product.discountPrice}}</span>
+            </div>
+        </div>
+        <div class="col-2">
+            <mat-dialog-actions>
+                <button class="button favorites-shopping-card-button">
+                    <i class="fa fa-shopping-cart fa-lg button-icon" aria-hidden="true"></i>
+                </button>
+            </mat-dialog-actions>
+        </div>
+    </div>
+</mat-dialog-content>

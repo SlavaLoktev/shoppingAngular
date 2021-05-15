@@ -54,12 +54,12 @@
 
 
 
-            <button class="button hover-border-1 button-margin-5 nav-button" onclick="window.location.href = '#';">
+            <button class="button hover-border-1 button-margin-5 nav-button">
                 <i class="fa fa-shopping-cart fa-lg button-icon" aria-hidden="true"></i>
             </button>
 
 
-            <button class="button hover-border-2 button-margin-5 nav-button" onclick="window.location.href = '#';">
+            <button (click)="openFavoritesDialog(productToFavorites)" class="button hover-border-2 button-margin-5 nav-button">
                 <i class="fa fa-heart-o fa-lg button-icon" aria-hidden="true"></i>
             </button>
 

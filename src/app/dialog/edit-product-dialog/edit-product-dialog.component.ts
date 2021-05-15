@@ -40,12 +40,13 @@ export class EditProductDialogComponent implements OnInit {
   newDiscountPrice: number;
   newDescription: string;
   newCategoryId: number;
+  newImage: string;
 
   // старый id категории тоже сохраняем, чтобы иметь возможность знать,
   // какая была до этого категория (нужно для правильного обновления счетчиков) мб не нужно!!!
   oldCategoryId: number;
 
-  canDelete = true; // можно ли удалять объект (активна ли кнопка удаления)
+  canDelete: boolean; // можно ли удалять объект (активна ли кнопка удаления)
 
   categorySearchValues = new CategorySearchValues();
 
@@ -102,15 +103,14 @@ export class EditProductDialogComponent implements OnInit {
     this.newStorageUnit = this.product.storageUnit;
     this.newDiscountPrice = this.product.discountPrice;
     this.newDescription = this.product.description;
+    this.newImage = this.product.image;
 
     // чтобы в html странице корректно работали выпадающие списки - лучше работать не с объектами, а с их id
     if (this.product.categories) {
       this.newCategoryId = this.product.categories.categoryId;
-      this.oldCategoryId = this.product.categories.categoryId; // старое значение категории всегда будет храниться тут
+      // this.oldCategoryId = this.product.categories.categoryId; // старое значение категории всегда будет храниться тут
       console.log('this.newCategoryId =' + this.product.categories.categoryId);
     }
-
-
   }
 
   // нажали ОК
@@ -121,8 +121,9 @@ export class EditProductDialogComponent implements OnInit {
     this.product.storageUnit = this.newStorageUnit;
     this.product.discountPrice = this.newDiscountPrice;
     this.product.description = this.newDescription;
+    this.product.image = this.newImage;
     this.product.categories = this.findCategoryById(this.newCategoryId);
-    this.product.oldCategory = this.findCategoryById(this.oldCategoryId); // TODO пофиксить категории
+    // this.product.oldCategory = this.findCategoryById(this.oldCategoryId); // TODO пофиксить категории
     console.log(this.product.categories);
     console.log(this.product);
     // передаем добавленную/измененную задачу в обработчик

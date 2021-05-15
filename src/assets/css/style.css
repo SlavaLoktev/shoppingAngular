@@ -437,6 +437,7 @@ html{
     }
     .goods-image-catalog{
         width: 110px;
+        height: 110px;
     }
     .goods-image{
         max-width: 150px;
@@ -511,6 +512,9 @@ html{
         padding-right: 0;
         padding-left: 20px;
     }
+    .read-product-image{
+        width: 250px;
+    }
 }
 
 @media (min-width: 767px) {
@@ -550,11 +554,16 @@ html{
     .hover-border-1{
         margin-left: 200px;
     }
+    .goods-image-catalog{
+        max-width:150px;
+        height: 150px;
+    }
 }
 
 @media(max-width: 1400px){
     .goods-image-catalog{
         max-width:150px;
+        height: 150px;
     }
     .advise{
         width: 380px;
@@ -911,3 +920,52 @@ html{
     max-width: 500px;
 }
 
+.accept-icon{
+    max-width: 100px;
+}
+
+.button-favorites{
+    outline: none; /* Для синий ободки */
+    border: 0;
+    background: transparent;
+}
+
+.button-shopping-cart{
+    outline: none; /* Для синий ободки */
+    border: 0;
+    background: transparent;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.favorites-shopping-card-image{
+    max-width: 100px;
+}
+
+.div-favorites-shopping-card-image{
+    cursor: pointer;
+}
+
+.div-favorites-shopping-card-text{
+    font-size: 17px;
+    font-family: 'Roboto Slab', serif;
+    line-height: 25px;
+    color: #262D33;
+    display: block;
+    cursor: pointer;
+}
+
+.favorites-shopping-card-name{
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.favorites-shopping-card:hover{
+    box-shadow: 0 0 10px #d3cfcf;
+}
+
+.favorites-shopping-card-button{
+    margin-top: 20px;
+}

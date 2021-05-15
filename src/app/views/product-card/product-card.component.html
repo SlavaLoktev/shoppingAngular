@@ -5,15 +5,18 @@
 </div>
 <div class="row">
     <div class="col-lg-3 col-sm-6" *ngFor="let product of products">
-        <a (click)="openReadDialog(product)" class="goods-card">
+        <a  class="goods-card">
             <span class="label">New</span>
-            <img src="assets/img/woman_shoe_card_image.png" alt="image: woman-shoe" class="goods-image-catalog">
-            <h3 class="goods-title">{{product.productName}}</h3>
-            <i class="fa fa-heart-o fa-lg heart-icon" aria-hidden="true"></i>
-            <p class="goods-description">{{product.description}}</p>
-            <span class="goods-price">{{product.price}} &#8381;</span><br>
+            <img (click)="openReadDialog(product)" *ngIf="!product.image" src="assets/img/woman_shoe_card_image.png" alt="image: woman-shoe" class="goods-image-catalog cursor-pointer">
+            <img (click)="openReadDialog(product)" *ngIf="product.image" src="{{product.image}}" alt="image: woman-shoe" class="goods-image-catalog cursor-pointer">
+            <h3 (click)="openReadDialog(product)" class="goods-title cursor-pointer">{{product.productName}}</h3>
+            <button (click)="openAddToFavoritesDialog(product)"class="fa fa-heart-o fa-lg heart-icon button-favorites" aria-hidden="true"></button>
+<!--            <i (click)="openAddToFavoritesDialog(product)" class="fa fa-heart-o fa-lg heart-icon" aria-hidden="true"></i>-->
+            <p (click)="openReadDialog(product)" class="goods-description cursor-pointer">{{product.description}}</p>
+            <span (click)="openReadDialog(product)" class="goods-price cursor-pointer">{{product.price}} &#8381;</span><br>
             <span style="color: #E31E25" class="goods-price">{{product.discountPrice ? product.discountPrice + "&#8381;" : ""}}</span>
-            <i class="fa fa-shopping-cart fa-lg shopping-cart-icon" aria-hidden="true"></i>
+            <button (click)="openAddToShoppingCartDialog(product)" class="fa fa-shopping-cart fa-lg shopping-cart-icon button-shopping-cart" aria-hidden="true"></button>
+<!--            <i class="fa fa-shopping-cart fa-lg shopping-cart-icon" aria-hidden="true"></i>-->
         </a>
         <button mat-icon-button (click)="openEditDialog(product)" *ngIf="showCRUD"><mat-icon aria-hidden="false">edit</mat-icon></button>
         <button mat-icon-button (click)="openDeleteDialog(product)" *ngIf="showCRUD"><mat-icon aria-hidden="false">delete</mat-icon></button>

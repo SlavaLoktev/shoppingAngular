@@ -37,6 +37,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { ConfirmDialogComponent } from './dialog/confirm-dialog/confirm-dialog.component';
 import {MatTableModule} from '@angular/material/table';
 import { ReadProductDialogComponent } from './dialog/read-product-dialog/read-product-dialog.component';
+import { AddProductDialogComponent } from './dialog/add-product-dialog/add-product-dialog.component';
+import { FavoritesDialogComponent } from './dialog/favorites-dialog/favorites-dialog.component';
+import { ShoppingCartDialogComponent } from './dialog/shopping-cart-dialog/shopping-cart-dialog.component';
 
 @NgModule({
     declarations: [
@@ -53,7 +56,10 @@ import { ReadProductDialogComponent } from './dialog/read-product-dialog/read-pr
         GoodInfoComponent,
         EditProductDialogComponent,
         ConfirmDialogComponent,
-        ReadProductDialogComponent
+        ReadProductDialogComponent,
+        AddProductDialogComponent,
+        FavoritesDialogComponent,
+        ShoppingCartDialogComponent
     ],
     imports: [
         BrowserModule,
@@ -103,7 +109,11 @@ import { ReadProductDialogComponent } from './dialog/read-product-dialog/read-pr
     ],
     entryComponents: [
         EditProductDialogComponent,
-        ConfirmDialogComponent
+        ConfirmDialogComponent,
+        ReadProductDialogComponent,
+        AddProductDialogComponent,
+        FavoritesDialogComponent,
+        ShoppingCartDialogComponent
     ],
     bootstrap: [AppComponent]
 })

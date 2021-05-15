@@ -10,6 +10,7 @@ import {DialogAction} from '../../object/DialogResult';
 import {ConfirmDialogComponent} from '../../dialog/confirm-dialog/confirm-dialog.component';
 import {CategoryService} from '../../data/dao/impl/CategoryService';
 import {ReadProductDialogComponent} from '../../dialog/read-product-dialog/read-product-dialog.component';
+import {AddProductDialogComponent} from '../../dialog/add-product-dialog/add-product-dialog.component';
 
 @Component({
   selector: 'app-product-card',
@@ -47,6 +48,9 @@ export class ProductCardComponent implements OnInit {
 
   @Output()
   deleteProduct = new EventEmitter<Product>();
+
+  @Output()
+  addProductToFavorites = new EventEmitter<Product>();
 
   products: Product[];
   categories: Category[];
@@ -176,6 +180,36 @@ export class ProductCardComponent implements OnInit {
   openReadDialog(product: Product): void {
     const dialogRef = this.dialog.open(ReadProductDialogComponent, {
       data: [product, 'Информация о товаре'],
+      autoFocus: false
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+      if (!(result)) { // если просто закрыли окно, ничего не нажав
+        return;
+      }
+    });
+  }
+
+  openAddToFavoritesDialog(product: Product): void {
+    const dialogRef = this.dialog.open(AddProductDialogComponent, {
+      data: [product, 'Добавлено!'],
+      autoFocus: false
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+      if (!(result)) { // если просто закрыли окно, ничего не нажав
+        this.addProductToFavorites.emit(product);
+        console.log('продукт в productCard ' + product);
+        return;
+      }
+    });
+  }
+
+  openAddToShoppingCartDialog(product: Product): void {
+    const dialogRef = this.dialog.open(AddProductDialogComponent, {
+      data: [product, 'Добавлено!'],
       autoFocus: false
     });
 

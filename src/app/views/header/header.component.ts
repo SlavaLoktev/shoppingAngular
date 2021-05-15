@@ -4,6 +4,9 @@ import {CategoryService} from '../../data/dao/impl/CategoryService';
 import {Department} from '../../model/Department';
 import {CategorySearchValues, ProductSearchValuesWithoutPaging} from '../../data/dao/search/SearchObjects';
 import {Product} from '../../model/Product';
+import {AddProductDialogComponent} from '../../dialog/add-product-dialog/add-product-dialog.component';
+import {FavoritesDialogComponent} from '../../dialog/favorites-dialog/favorites-dialog.component';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +17,9 @@ export class HeaderComponent implements OnInit {
 
   categories: Category[];
 
-  constructor() { }
+  constructor(
+      private dialog: MatDialog // работа с диалоговым окном
+  ) { }
 
   @Input('categories')
   set setCategories(categories: Category[]) {
@@ -43,6 +48,9 @@ export class HeaderComponent implements OnInit {
 
   @Output()
   toggleCRUD = new EventEmitter<boolean>();
+
+  @Input()
+  productToFavorites: Product;
 
   products: Product[];
 
@@ -86,5 +94,12 @@ export class HeaderComponent implements OnInit {
 
   showProductCardsByCategory(category: Category): void {
     // this.dataHandler.fillProductCardsByCategory(category);
+  }
+
+  openFavoritesDialog(product: Product): void {
+    const dialogRef = this.dialog.open(FavoritesDialogComponent, {
+      data: [product, 'Избранное'],
+      autoFocus: false
+    });
   }
 }

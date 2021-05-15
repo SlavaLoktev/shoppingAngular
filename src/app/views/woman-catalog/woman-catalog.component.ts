@@ -28,6 +28,8 @@ export class WomanCatalogComponent implements OnInit {
   // @Output()
   // searchAction = new EventEmitter<ProductSearchValuesWithoutPaging>();
 
+  addProductToFavoritesFromWoman: Product;
+
   constructor(private productService: ProductService,
               private dialog: MatDialog) { }
 
@@ -114,6 +116,10 @@ export class WomanCatalogComponent implements OnInit {
       // this.findProductsWithoutPaging(this.productSearchValuesWithoutPaging);
       this.initSearch();
     });
+  }
+
+  addProductToFavorites(product: Product): void {
+    this.addProductToFavoritesFromWoman = product;
   }
 
 }

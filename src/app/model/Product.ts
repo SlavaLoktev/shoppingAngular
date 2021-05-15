@@ -12,12 +12,24 @@ export class Product {
     categories: Category;
     attrValue?: AttrValue;
     review?: Reviews;
+    image?: string;
+    imageSmall?: string;
 
     oldCategory?: Category;
 
 
-    constructor(productId: number, productName: string, storageUnit: string, price: number, discountPrice: number, description: string,
-                categories: Category, attrValue?: AttrValue, review?: Reviews, oldCategory?: Category) {
+    constructor(productId: number,
+                productName: string,
+                storageUnit: string,
+                price: number,
+                discountPrice: number,
+                description: string,
+                categories: Category,
+                attrValue?: AttrValue,
+                review?: Reviews,
+                image?: string,
+                imageSmall?: string,
+                oldCategory?: Category) {
         this.productId = productId;
         this.productName = productName;
         this.storageUnit = storageUnit;
@@ -27,6 +39,8 @@ export class Product {
         this.categories = categories;
         this.attrValue = attrValue;
         this.review = review;
+        this.image = image;
+        this.imageSmall = imageSmall;
         this.oldCategory = oldCategory;
     }
 }

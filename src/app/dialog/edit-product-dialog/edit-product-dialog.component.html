@@ -106,6 +106,27 @@
     </mat-form-field>
     <br>
 
+    <!--большое изображение товара    -->
+    <mat-form-field color="warn" class="width">
+        <mat-label>Изображение товара</mat-label>
+        <input
+            #inputTitle
+            matInput
+
+            [(ngModel)]="newImage"
+        >
+        <button *ngIf="newImage && newImage.trim().length > 0"
+
+                mat-button matSuffix mat-icon-button aria-label="Clear"
+
+                (click)="newImage= ''" class="dialog-toto-title"
+
+        >
+            <mat-icon>clear</mat-icon>
+        </button>
+    </mat-form-field>
+    <br>
+
 
     <!--    выпадающий список категорий-->
     <!--
@@ -113,7 +134,7 @@
     -->
     <mat-form-field color="warn" class="width">
         <mat-label>Укажите категорию</mat-label>
-        <mat-select [(value)]="newCategoryId">
+        <mat-select [(ngModel)]="newCategoryId">
             <mat-option [value]="null">Без категории</mat-option>
             <mat-option *ngFor="let cat of categories" [value]="cat.categoryId">
                 {{cat.categoryName}}
@@ -133,31 +154,33 @@
 <!--  кнопки возможных действий-->
 <mat-dialog-actions>
     <div class="col-md-8 col-12">
-        <button
-                mat-raised-button color="warn"
-                (click)="confirm()"
-                [disabled]="inputTitle.value.trim().length==0 ||
-                newStorageUnit.trim().length==0 ||
-                newProductName.trim().length==0 ||
-                newPrice==null ||
-                newPrice<0 ||
-                newDiscountPrice<0"
-        >
-            Сохранить
-        </button>
-
-        <button mat-raised-button (click)="cancel()">Отмена</button>
+        <div class="row">
+            <div class="col-6">
+                <button
+                    mat-raised-button color="warn"
+                    (click)="confirm()"
+                    [disabled]="inputTitle.value.trim().length==0 ||
+                    newStorageUnit.trim().length==0 ||
+                    newProductName.trim().length==0 ||
+                    newPrice==null ||
+                    newPrice<0 ||
+                    newDiscountPrice<0"
+                >
+                    Сохранить
+                </button>
+            </div>
+            <div class="col-6">
+                <button mat-raised-button (click)="cancel()">Отмена</button>
+            </div>
+        </div>
     </div>
 
     <!--  возможные операции над товаром-->
 
-    <div class="col-md-4 col-12 text-right"
-         *ngIf="canDelete"
-    >
+    <div class="col-md-4 col-12 text-right">
         <button
                 mat-button
-                *ngIf="canDelete"
-
+                [disabled]="canDelete==null"
                 (click)="delete()"
         >
             Удалить товар

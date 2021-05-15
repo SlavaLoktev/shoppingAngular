@@ -3,6 +3,7 @@ import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog
 import {Product} from '../../model/Product';
 import {Category} from '../../model/Category';
 import {AttrValue} from '../../model/AttrValue';
+import {AddProductDialogComponent} from '../add-product-dialog/add-product-dialog.component';
 
 @Component({
   selector: 'app-read-product-dialog',
@@ -24,6 +25,34 @@ export class ReadProductDialogComponent implements OnInit {
   ngOnInit(): void {
     this.product = this.data[0];
     this.dialogTitle = this.data[1];
+  }
+
+  openAddToFavoritesDialog(product: Product): void {
+    const dialogRef = this.dialog.open(AddProductDialogComponent, {
+      data: [product, 'Добавлено!'],
+      autoFocus: false
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+      if (!(result)) { // если просто закрыли окно, ничего не нажав
+        return;
+      }
+    });
+  }
+
+  openAddToShoppingCartDialog(product: Product): void {
+    const dialogRef = this.dialog.open(AddProductDialogComponent, {
+      data: [product, 'Добавлено!'],
+      autoFocus: false
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+      if (!(result)) { // если просто закрыли окно, ничего не нажав
+        return;
+      }
+    });
   }
 
 }
