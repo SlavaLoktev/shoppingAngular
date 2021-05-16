@@ -143,6 +143,15 @@
     </mat-form-field>
     <br>
 
+    <mat-form-field color="warn" class="width">
+        <mat-label>Показывать лейбл new?</mat-label>
+        <mat-select [(ngModel)]="newNewLabel">
+            <mat-option [value]="true">Да</mat-option>
+            <mat-option [value]="false">Нет</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br>
+
 
     <!--    выпадающий список артибутов-->
 

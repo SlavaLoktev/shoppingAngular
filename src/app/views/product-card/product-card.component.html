@@ -6,7 +6,7 @@
 <div class="row">
     <div class="col-lg-3 col-sm-6" *ngFor="let product of products">
         <a  class="goods-card">
-            <span class="label">New</span>
+            <span *ngIf="product.newLabel==true" class="label">New</span>
             <img (click)="openReadDialog(product)" *ngIf="!product.image" src="assets/img/woman_shoe_card_image.png" alt="image: woman-shoe" class="goods-image-catalog cursor-pointer">
             <img (click)="openReadDialog(product)" *ngIf="product.image" src="{{product.image}}" alt="image: woman-shoe" class="goods-image-catalog cursor-pointer">
             <h3 (click)="openReadDialog(product)" class="goods-title cursor-pointer">{{product.productName}}</h3>
@@ -18,7 +18,7 @@
             <button (click)="openAddToShoppingCartDialog(product)" class="fa fa-shopping-cart fa-lg shopping-cart-icon button-shopping-cart" aria-hidden="true"></button>
 <!--            <i class="fa fa-shopping-cart fa-lg shopping-cart-icon" aria-hidden="true"></i>-->
         </a>
-        <button mat-icon-button (click)="openEditDialog(product)" *ngIf="showCRUD"><mat-icon aria-hidden="false">edit</mat-icon></button>
-        <button mat-icon-button (click)="openDeleteDialog(product)" *ngIf="showCRUD"><mat-icon aria-hidden="false">delete</mat-icon></button>
+        <button class="edit-delete-buttons" mat-icon-button (click)="openEditDialog(product)" *ngIf="showCRUD"><mat-icon aria-hidden="false">edit</mat-icon></button>
+        <button class="edit-delete-buttons" mat-icon-button (click)="openDeleteDialog(product)" *ngIf="showCRUD"><mat-icon aria-hidden="false">delete</mat-icon></button>
     </div>
 </div>

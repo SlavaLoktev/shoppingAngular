@@ -16,6 +16,7 @@ export class Product {
     imageSmall?: string;
 
     oldCategory?: Category;
+    newLabel?: boolean;
 
 
     constructor(productId: number,
@@ -29,7 +30,8 @@ export class Product {
                 review?: Reviews,
                 image?: string,
                 imageSmall?: string,
-                oldCategory?: Category) {
+                oldCategory?: Category,
+                newLabel?: boolean) {
         this.productId = productId;
         this.productName = productName;
         this.storageUnit = storageUnit;
@@ -42,5 +44,6 @@ export class Product {
         this.image = image;
         this.imageSmall = imageSmall;
         this.oldCategory = oldCategory;
+        this.newLabel = newLabel;
     }
 }

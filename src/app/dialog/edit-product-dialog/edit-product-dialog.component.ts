@@ -41,6 +41,7 @@ export class EditProductDialogComponent implements OnInit {
   newDescription: string;
   newCategoryId: number;
   newImage: string;
+  newNewLabel: boolean;
 
   // старый id категории тоже сохраняем, чтобы иметь возможность знать,
   // какая была до этого категория (нужно для правильного обновления счетчиков) мб не нужно!!!
@@ -104,6 +105,7 @@ export class EditProductDialogComponent implements OnInit {
     this.newDiscountPrice = this.product.discountPrice;
     this.newDescription = this.product.description;
     this.newImage = this.product.image;
+    this.newNewLabel = this.product.newLabel;
 
     // чтобы в html странице корректно работали выпадающие списки - лучше работать не с объектами, а с их id
     if (this.product.categories) {
@@ -123,6 +125,7 @@ export class EditProductDialogComponent implements OnInit {
     this.product.description = this.newDescription;
     this.product.image = this.newImage;
     this.product.categories = this.findCategoryById(this.newCategoryId);
+    this.product.newLabel = this.newNewLabel;
     // this.product.oldCategory = this.findCategoryById(this.oldCategoryId); // TODO пофиксить категории
     console.log(this.product.categories);
     console.log(this.product);
