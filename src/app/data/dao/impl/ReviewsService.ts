@@ -6,6 +6,7 @@ import {Observable} from 'rxjs';
 import {Reviews} from '../../../model/Reviews';
 import {CommonService} from './CommonService';
 import {CATEGORY_URL_TOKEN} from './CategoryService';
+import {ReviewsSearchValues} from '../search/SearchObjects';
 
 export const REVIEWS_URL_TOKEN = new InjectionToken<string>('url');
 
@@ -18,5 +19,9 @@ export class ReviewsService extends CommonService<Reviews> implements ReviewsDAO
               private http: HttpClient // для выполнения HTTP запросов
   ) {
     super(baseUrl, http);
+  }
+
+  findReviews(reviewsSearchValues: ReviewsSearchValues): Observable<Reviews[]> {
+    return this.http.post<Reviews[]>(this.baseUrl + '/search', reviewsSearchValues);
   }
 }

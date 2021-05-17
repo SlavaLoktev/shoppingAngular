@@ -21,3 +21,8 @@ export class ProductSearchValuesWithoutPaging {
     productName = '';
     price: number = null;
 }
+
+export class ReviewsSearchValues {
+
+    product: number;
+}

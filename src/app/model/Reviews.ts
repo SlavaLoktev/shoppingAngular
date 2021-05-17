@@ -6,15 +6,15 @@ export class Reviews {
     text: string;
     reviewDate: Date;
     rating: number;
-    productId: Product;
-    customerId: Customers;
+    product: Product;
+    customers: Customers;
 
     constructor(reviewId: number, text: string, reviewDate: Date, rating: number, productId: Product, customerId: Customers) {
         this.reviewId = reviewId;
         this.text = text;
         this.reviewDate = reviewDate;
         this.rating = rating;
-        this.productId = productId;
-        this.customerId = customerId;
+        this.product = productId;
+        this.customers = customerId;
     }
 }

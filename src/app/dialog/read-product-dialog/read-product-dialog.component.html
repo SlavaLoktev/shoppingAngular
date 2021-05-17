@@ -4,6 +4,50 @@
         <div class="col-md-7 col-sm-12 left-product-read">
             <img *ngIf="!product.image" class="read-product-image" src="assets/img/woman_shoe_card_image.png">
             <img *ngIf="product.image" class="read-product-image" src="{{product.image}}">
+            <div class="reviews">
+                <hr>
+                <div class="row">
+                    <span style="font-size: 20px" class="good-vendor-main">Отзывы: </span>
+                </div>
+                <div class="row" *ngIf="reviews.length == 0">
+                    <span class="d-flex justify-content-center">Будьте первым, кто оставит свой отзыв!</span>
+                </div>
+                <div class="review-box row" *ngFor="let review of reviews">
+                    <div class="col-1">
+                        <i class="fa fa-user fa-lg" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-6 d-flex justify-content-center">
+                        <span class="good-vendor-main">{{review.customers.custLastName}} {{review.customers.custFirstName}}</span>
+                    </div>
+                    <div class="col-5">
+                        <div class="row">
+                            <div class="col-12 d-flex justify-content-end">
+                                <span class="good-vendor-main">Рейтинг: {{review.rating}}</span>
+                            </div>
+                            <div class="col-12 d-flex justify-content-end">
+                                <span>{{review.reviewDate}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <span class="good-vendor-main">Комментарий: </span>
+                    </div>
+                    <div class="row">
+                        <span class="review-text">{{review.text}}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <span>Отзывы могут оставлять только зарегистрированные пользователи.</span>
+                </div>
+                <div class="row">
+                    <div class="col-6 d-flex justify-content-center">
+                        <a routerLink="/registration" class="registration-link">Зарегистрироваться</a>
+                    </div>
+                    <div class="col-6 d-flex justify-content-center">
+                        <a routerLink="/authentication" class="registration-link">Войти</a>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="col-md-5 col-sm-12 right-product-read">
             <p class="good-name-main">{{product.productName}}</p>

@@ -1,6 +1,11 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Product} from '../../model/Product';
-import {CategorySearchValues, ProductSearchValues, ProductSearchValuesWithoutPaging} from '../../data/dao/search/SearchObjects';
+import {
+  CategorySearchValues,
+  ProductSearchValues,
+  ProductSearchValuesWithoutPaging,
+  ReviewsSearchValues
+} from '../../data/dao/search/SearchObjects';
 import {ProductService} from '../../data/dao/impl/ProductService';
 import {Category} from '../../model/Category';
 import {MatDialog} from '@angular/material/dialog';
@@ -11,6 +16,8 @@ import {ConfirmDialogComponent} from '../../dialog/confirm-dialog/confirm-dialog
 import {CategoryService} from '../../data/dao/impl/CategoryService';
 import {ReadProductDialogComponent} from '../../dialog/read-product-dialog/read-product-dialog.component';
 import {AddProductDialogComponent} from '../../dialog/add-product-dialog/add-product-dialog.component';
+import {ReviewsService} from '../../data/dao/impl/ReviewsService';
+import {Reviews} from '../../model/Reviews';
 
 @Component({
   selector: 'app-product-card',
@@ -55,6 +62,7 @@ export class ProductCardComponent implements OnInit {
   products: Product[];
   categories: Category[];
   attrValues: AttrValue[];
+  reviews: Reviews[];
 
   productSearchValues = new ProductSearchValues();
 
@@ -62,12 +70,15 @@ export class ProductCardComponent implements OnInit {
 
   productSearchValuesWithoutPaging = new ProductSearchValuesWithoutPaging();
 
+  reviewsSearchValues = new ReviewsSearchValues();
+
   filterTitle = 'женские';
   // filterTitle1 = 'сумка';
 
   constructor(private productService: ProductService,
               private dialog: MatDialog, // работа с диалоговым окном
-              private categoryService: CategoryService
+              private categoryService: CategoryService,
+              private reviewsService: ReviewsService
   ) { }
 
   // searchProducts(productSearchValues: ProductSearchValues): void {
@@ -101,6 +112,21 @@ export class ProductCardComponent implements OnInit {
   //     console.log(result);
   //   });
   // }
+
+  findReviews(product: Product): void{
+    console.log('find reviews(): product.id = ' + product.productId);
+    this.reviewsSearchValues.product = product.productId;
+    this.reviewsService.findReviews(this.reviewsSearchValues).subscribe(result => {
+      // for (const review of this.reviews){
+      //   if (product.productId === review.productId.productId){
+      //     this.reviews = result;
+      //   }
+      // }
+      this.reviews = result;
+      console.log('find reviews(): reviewsSearchValues.productId = ' + this.reviewsSearchValues.product);
+      console.log('find reviews(): ' + this.reviews);
+    });
+  }
 
   ngOnInit(): void {
     // this.dataHandler.productsSubject.subscribe(productCards => this.productCards = productCards);
@@ -178,10 +204,12 @@ export class ProductCardComponent implements OnInit {
   }
 
   openReadDialog(product: Product): void {
+    // this.findReviews(product);
     const dialogRef = this.dialog.open(ReadProductDialogComponent, {
-      data: [product, 'Информация о товаре'],
+      data: [product, 'Информация о товаре'/*, this.reviews*/],
       autoFocus: false
     });
+    // console.log('openReadDialog(): ' + this.reviews);
 
     dialogRef.afterClosed().subscribe(result => {
 
