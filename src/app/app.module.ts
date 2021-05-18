@@ -40,6 +40,7 @@ import { ReadProductDialogComponent } from './dialog/read-product-dialog/read-pr
 import { AddProductDialogComponent } from './dialog/add-product-dialog/add-product-dialog.component';
 import { FavoritesDialogComponent } from './dialog/favorites-dialog/favorites-dialog.component';
 import { ShoppingCartDialogComponent } from './dialog/shopping-cart-dialog/shopping-cart-dialog.component';
+import { ManProductCardComponent } from './views/man-product-card/man-product-card.component';
 
 @NgModule({
     declarations: [
@@ -59,7 +60,8 @@ import { ShoppingCartDialogComponent } from './dialog/shopping-cart-dialog/shopp
         ReadProductDialogComponent,
         AddProductDialogComponent,
         FavoritesDialogComponent,
-        ShoppingCartDialogComponent
+        ShoppingCartDialogComponent,
+        ManProductCardComponent
     ],
     imports: [
         BrowserModule,

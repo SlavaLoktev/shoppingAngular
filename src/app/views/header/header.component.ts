@@ -18,7 +18,8 @@ export class HeaderComponent implements OnInit {
   categories: Category[];
 
   constructor(
-      private dialog: MatDialog // работа с диалоговым окном
+      private dialog: MatDialog, // работа с диалоговым окном
+      private categoryService: CategoryService
   ) { }
 
   @Input('categories')
@@ -33,8 +34,8 @@ export class HeaderComponent implements OnInit {
   selectCategory = new EventEmitter<string>();
 
   // параметры поиска категорий
-  categorySearchValues: CategorySearchValues;
-
+  // categorySearchValues: CategorySearchValues;
+  categorySearchValues = new CategorySearchValues();
   filterTitle = 1;
 
   productSearchValuesWithoutPaging: ProductSearchValuesWithoutPaging;
@@ -85,15 +86,40 @@ export class HeaderComponent implements OnInit {
     this.toggleCRUD.emit(!this.showCRUD);
   }
 
+  findCategories(categorySearchValues: CategorySearchValues): void{
+    this.categorySearchValues = categorySearchValues;
+    // this.categorySearchValues.departmentId = 1;
+    this.categoryService.findCategories(this.categorySearchValues).subscribe(result => {
+      this.categories = result;
+    });
+  }
+
+  initSearchCategoriesWoman(): void {
+    this.categorySearchValues.departmentId = 1;
+    this.categoryService.findCategories(this.categorySearchValues).subscribe(result => {
+      this.categories = result;
+    });
+  }
+
+  initSearchCategoriesMan(): void {
+    this.categorySearchValues.departmentId = 2;
+    this.categoryService.findCategories(this.categorySearchValues).subscribe(result => {
+      this.categories = result;
+    });
+  }
+
+  initSearchCategoriesKids(): void {
+    this.categorySearchValues.departmentId = 3;
+    this.categoryService.findCategories(this.categorySearchValues).subscribe(result => {
+      this.categories = result;
+    });
+  }
+
   ngOnInit(): void {
     // this.categories = this.dataHandler.getCategories();
     // this.dataHandler.categoriesSubject.subscribe(categories => this.categories = categories);
     // this.search();
     // this.searchProductsWithoutPaging(this.filterProductName);
-  }
-
-  showProductCardsByCategory(category: Category): void {
-    // this.dataHandler.fillProductCardsByCategory(category);
   }
 
   openFavoritesDialog(product: Product): void {

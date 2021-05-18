@@ -7,7 +7,7 @@ export class Product {
     productName: string;
     storageUnit: string;
     price: number;
-    discountPrice?: number;
+    discountPrice: number;
     description: string;
     categories: Category;
     attrValue?: AttrValue;

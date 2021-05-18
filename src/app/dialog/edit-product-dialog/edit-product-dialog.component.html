@@ -44,8 +44,9 @@
 
     <!--цена со скидкой    -->
     <mat-form-field color="warn" class="width">
-        <mat-label>Цена со скидкой</mat-label>
+        <mat-label>Цена со скидкой (обязательно)</mat-label>
         <mat-label *ngIf="newDiscountPrice<0"> Цена должна быть > 0</mat-label>
+        <mat-label *ngIf="newDiscountPrice==null"> Укажите 0, если это поле не нужно</mat-label>
         <input
             #inputTitle
             matInput
@@ -169,11 +170,14 @@
                     mat-raised-button color="warn"
                     (click)="confirm()"
                     [disabled]="inputTitle.value.trim().length==0 ||
-                    newStorageUnit.trim().length==0 ||
-                    newProductName.trim().length==0 ||
-                    newPrice==null ||
-                    newPrice<0 ||
-                    newDiscountPrice<0"
+                                newStorageUnit.trim().length==0 ||
+                                newProductName.trim().length==0 ||
+                                newPrice==null ||
+                                newDiscountPrice==null ||
+                                newPrice.toString().trim().length==0 ||
+                                newDiscountPrice.toString().trim().length==0 ||
+                                newPrice<0 ||
+                                newDiscountPrice<0"
                 >
                     Сохранить
                 </button>

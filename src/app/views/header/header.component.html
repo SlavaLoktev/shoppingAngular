@@ -10,30 +10,21 @@
         <div class="collapse navbar-collapse" id="navbarContent">
             <ul class="navbar-nav mr-auto mb-2 navigation align-items-center">
                 <li class="navigation-item">
-                    <a (click)="showCategory('женские')" routerLink="/womanCatalog" class="navigation-link">Женщины</a>
+                    <a (click)="showCategory('женские')" (mouseenter)="initSearchCategoriesWoman()" routerLink="/womanCatalog" class="navigation-link">Женщины</a>
                     <ul class="sub-category-list">
-                        <li (click)="showCategory('балетки женские')" routerLink="/womanCatalog" ><a class="sub-category-link">Балетки</a></li>
-                        <li (click)="showCategory('босоножки женские')" routerLink="/womanCatalog" ><a class="sub-category-link">Босоножки</a></li>
-                        <li (click)="showCategory('ботильоны женские')" routerLink="/womanCatalog" ><a class="sub-category-link">Ботильоны</a></li>
-                        <li (click)="showCategory('ботинки женские')" routerLink="/womanCatalog" ><a class="sub-category-link">Ботинки</a></li>
-                        <li (click)="showCategory('ботфорты женские')" routerLink="/womanCatalog" ><a class="sub-category-link">Ботфорты</a></li>
-                        <li (click)="showCategory('дутики женские')" routerLink="/womanCatalog" ><a class="sub-category-link">Дутики</a></li>
-                        <li (click)="showCategory('кеды женские')" routerLink="/womanCatalog" ><a class="sub-category-link">Кеды</a></li>
-                        <li (click)="showCategory('кроссовки женские')" routerLink="/womanCatalog" ><a class="sub-category-link">Кроссовки</a></li>
-                        <li (click)="showCategory('лоферы женские')" routerLink="/womanCatalog" ><a class="sub-category-link">Лоферы</a></li>
-                        <li (click)="showCategory('мокасины женские')" routerLink="/womanCatalog" ><a class="sub-category-link">Мокасины</a></li>
+                        <li routerLink="/womanCatalog" *ngFor="let category of categories"><a (click)="showCategory(category.categoryName + ' женские')" class="sub-category-link">{{category.categoryName}}</a></li>
                     </ul>
                 </li>
                 <li class="navigation-item">
-                    <a routerLink="/manCatalog" class="navigation-link">Мужчины</a>
+                    <a (click)="showCategory('мужские')" (mouseenter)="initSearchCategoriesMan()" routerLink="/manCatalog" class="navigation-link">Мужчины</a>
                     <ul class="sub-category-list">
-                        <li (mouseenter)="search()" routerLink="/manCatalog" *ngFor="let category of categories" (click)="showProductCardsByCategory(category)"><a class="sub-category-link">{{category.categoryName}}</a></li>
+                        <li routerLink="/manCatalog" *ngFor="let category of categories"><a (click)="showCategory(category.categoryName + ' мужские')" class="sub-category-link">{{category.categoryName}}</a></li>
                     </ul>
                 </li>
                 <li class="navigation-item">
-                    <a routerLink="/kidCatalog" class="navigation-link">Дети</a>
+                    <a (click)="showCategory('детские')" (mouseenter)="initSearchCategoriesKids()" routerLink="/kidCatalog" class="navigation-link">Дети</a>
                     <ul class="sub-category-list">
-                        <li routerLink="/kidCatalog" *ngFor="let category of categories"><a class="sub-category-link">{{category.categoryName}}</a></li>
+                        <li routerLink="/kidCatalog" *ngFor="let category of categories"><a (click)="showCategory(category.categoryName + ' детские')" class="sub-category-link">{{category.categoryName}}</a></li>
                     </ul>
                 </li>
                 <li class="navigation-item">
@@ -46,7 +37,8 @@
 
 
 
-                <div class="d-flex">
+
+                <div class="d-flex admin-mode-text">
                     <span class="link navigation-link" (click)="onToggleCRUD()" *ngIf="showCRUD">admin mode: off</span>
                     <span class="link navigation-link" (click)="onToggleCRUD()" *ngIf="!showCRUD">admin mode: on</span>
                 </div>
@@ -64,7 +56,7 @@
             </button>
 
 
-            <button class="button hover-border-3 button-margin-5 nav-button" routerLink="/authentication">
+            <button class="button hover-border-3 button-margin-5 nav-button justify-content-end" routerLink="/authentication">
                 <i class="fa fa-user fa-lg" aria-hidden="true"></i>
             </button>
 

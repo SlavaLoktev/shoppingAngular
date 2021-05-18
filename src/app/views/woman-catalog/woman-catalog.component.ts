@@ -64,6 +64,18 @@ export class WomanCatalogComponent implements OnInit {
 
   initSearch(): void{
 
+    this.productSearchValuesWithoutPaging.productName = this.filterTitle;
+    console.log(this.productSearchValuesWithoutPaging.productName);
+    // this.searchAction.emit(this.productSearchValuesWithoutPaging);
+    // this.findProductsWithoutPaging(this.productSearchValuesWithoutPaging);
+    this.productService.findProductsWithoutPaging(this.productSearchValuesWithoutPaging).subscribe(result => {
+      this.products = result;
+      console.log(result);
+    });
+  }
+
+  initSearchAfterCRUD(): void{
+
     this.productSearchValuesWithoutPaging.productName = this.filterTitle + ' женские';
     console.log(this.productSearchValuesWithoutPaging.productName);
     // this.searchAction.emit(this.productSearchValuesWithoutPaging);
@@ -100,21 +112,21 @@ export class WomanCatalogComponent implements OnInit {
   addProduct(product: Product): void {
     this.productService.add(product).subscribe(result => {
       // this.findProductsWithoutPaging(this.productSearchValuesWithoutPaging); // обновляем список товаров
-      this.initSearch();
+      this.initSearchAfterCRUD();
     });
   }
 
   updateProduct(product: Product): void {
     this.productService.update(product).subscribe(result => {
       // this.findProductsWithoutPaging(this.productSearchValuesWithoutPaging);
-      this.initSearch();
+      this.initSearchAfterCRUD();
     });
   }
 
   deleteProduct(product: Product): void {
     this.productService.delete(product.productId).subscribe(result => {
       // this.findProductsWithoutPaging(this.productSearchValuesWithoutPaging);
-      this.initSearch();
+      this.initSearchAfterCRUD();
     });
   }
 
