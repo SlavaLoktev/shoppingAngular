@@ -46,6 +46,8 @@ import {ORDERDETAILS_URL_TOKEN} from './data/dao/impl/OrderDetailsService';
 import { FillOrderDialogComponent } from './dialog/fill-order-dialog/fill-order-dialog.component';
 import { OrderDetailsDialogComponent } from './dialog/order-details-dialog/order-details-dialog.component';
 import { KidProductCardComponent } from './views/kid-product-card/kid-product-card.component';
+import { EditProductDialogManComponent } from './dialog/edit-product-dialog-man/edit-product-dialog-man.component';
+import { EditProductDialogKidComponent } from './dialog/edit-product-dialog-kid/edit-product-dialog-kid.component';
 
 @NgModule({
     declarations: [
@@ -69,7 +71,9 @@ import { KidProductCardComponent } from './views/kid-product-card/kid-product-ca
         ManProductCardComponent,
         FillOrderDialogComponent,
         OrderDetailsDialogComponent,
-        KidProductCardComponent
+        KidProductCardComponent,
+        EditProductDialogManComponent,
+        EditProductDialogKidComponent
     ],
     imports: [
         BrowserModule,
@@ -133,7 +137,9 @@ import { KidProductCardComponent } from './views/kid-product-card/kid-product-ca
         FavoritesDialogComponent,
         ShoppingCartDialogComponent,
         FillOrderDialogComponent,
-        OrderDetailsDialogComponent
+        OrderDetailsDialogComponent,
+        EditProductDialogManComponent,
+        EditProductDialogKidComponent
     ],
     bootstrap: [AppComponent]
 })

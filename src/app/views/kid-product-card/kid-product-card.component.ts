@@ -13,6 +13,7 @@ import {DialogAction} from '../../object/DialogResult';
 import {ConfirmDialogComponent} from '../../dialog/confirm-dialog/confirm-dialog.component';
 import {ReadProductDialogComponent} from '../../dialog/read-product-dialog/read-product-dialog.component';
 import {AddProductDialogComponent} from '../../dialog/add-product-dialog/add-product-dialog.component';
+import {EditProductDialogKidComponent} from '../../dialog/edit-product-dialog-kid/edit-product-dialog-kid.component';
 
 @Component({
   selector: 'app-kid-product-card',
@@ -101,7 +102,7 @@ export class KidProductCardComponent implements OnInit {
   openAddDialog(): void {
     const product = new Product(null, '', '', null, null, '', this.selectedCategory);
 
-    const dialogRef = this.dialog.open(EditProductDialogComponent, {
+    const dialogRef = this.dialog.open(EditProductDialogKidComponent, {
 
       // передаем новый пустой объект  для заполнения
       // также передаем справочные данные (категории, атрибуты)
@@ -122,7 +123,7 @@ export class KidProductCardComponent implements OnInit {
 
   // диалоговое окно редактирования для добавления товара
   openEditDialog(product: Product): void {
-    const dialogRef = this.dialog.open(EditProductDialogComponent, {
+    const dialogRef = this.dialog.open(EditProductDialogKidComponent, {
       data: [product, 'Редактирование товара', this.categories],
       autoFocus: false
     });

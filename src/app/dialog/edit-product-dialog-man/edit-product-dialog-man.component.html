@@ -1,0 +1,204 @@
+<mat-dialog-content>
+    <p mat-dialog-title>{{dialogTitle}}</p>
+
+    <!--название товара    -->
+    <mat-form-field color="warn" class="width">
+        <mat-label>Наименование (обязательно)</mat-label>
+        <input
+            #inputTitle
+            matInput
+
+            [(ngModel)]="newProductName"
+        >
+        <button *ngIf="newProductName && newProductName.trim().length > 0"
+
+                mat-button matSuffix mat-icon-button aria-label="Clear"
+
+                (click)="newProductName= ''" class="dialog-toto-title"
+
+        >
+            <mat-icon>clear</mat-icon>
+        </button>
+    </mat-form-field>
+    <br>
+
+    <!--цена товара    -->
+    <mat-form-field color="warn" class="width">
+        <mat-label>Цена (обязательно)</mat-label>
+        <mat-label *ngIf="newPrice<0"> Цена должна быть > 0</mat-label>
+        <input
+            #inputTitle
+            matInput
+
+            [(ngModel)]="newPrice"
+        >
+        <button *ngIf="newPrice"
+                mat-button matSuffix mat-icon-button aria-label="Clear"
+
+                (click)="newPrice= null"
+        >
+            <mat-icon>clear</mat-icon>
+        </button>
+    </mat-form-field>
+    <br>
+
+    <!--цена со скидкой    -->
+    <mat-form-field color="warn" class="width">
+        <mat-label>Цена со скидкой (обязательно)</mat-label>
+        <mat-label *ngIf="newDiscountPrice<0"> Цена должна быть > 0</mat-label>
+        <mat-label *ngIf="newDiscountPrice==null"> Укажите 0, если это поле не нужно</mat-label>
+        <input
+            #inputTitle
+            matInput
+
+            [(ngModel)]="newDiscountPrice"
+
+        >
+
+        <button *ngIf="newDiscountPrice"
+                mat-button matSuffix mat-icon-button aria-label="Clear"
+
+                (click)="newDiscountPrice= null"
+        >
+            <mat-icon>clear</mat-icon>
+        </button>
+    </mat-form-field>
+    <br>
+
+    <!--единицы измерения товара (пар/шт)    -->
+    <mat-form-field color="warn" class="width">
+        <mat-label>Единицы измерения товара (обязательно)</mat-label>
+        <input
+            #inputTitle
+            matInput
+
+            [(ngModel)]="newStorageUnit"
+
+            (keydown.enter)="confirm()"> <!-- по нажатию на enter можем сразу сохранить задачу -->
+
+        <button *ngIf="newStorageUnit && newStorageUnit.trim().length > 0"
+                mat-button matSuffix mat-icon-button aria-label="Clear"
+
+                (click)="newStorageUnit= ''"
+        >
+            <mat-icon>clear</mat-icon>
+        </button>
+    </mat-form-field>
+    <br>
+
+    <!--описание товара    -->
+    <mat-form-field color="warn" class="width">
+        <mat-label>Описание</mat-label>
+        <input
+            #inputTitle
+            matInput
+
+            [(ngModel)]="newDescription"
+        >
+        <button *ngIf="newDescription && newDescription.trim().length > 0"
+
+                mat-button matSuffix mat-icon-button aria-label="Clear"
+
+                (click)="newDescription= ''" class="dialog-toto-title"
+
+        >
+            <mat-icon>clear</mat-icon>
+        </button>
+    </mat-form-field>
+    <br>
+
+    <!--большое изображение товара    -->
+    <mat-form-field color="warn" class="width">
+        <mat-label>Изображение товара</mat-label>
+        <input
+            #inputTitle
+            matInput
+
+            [(ngModel)]="newImage"
+        >
+        <button *ngIf="newImage && newImage.trim().length > 0"
+
+                mat-button matSuffix mat-icon-button aria-label="Clear"
+
+                (click)="newImage= ''" class="dialog-toto-title"
+
+        >
+            <mat-icon>clear</mat-icon>
+        </button>
+    </mat-form-field>
+    <br>
+
+
+    <!--    выпадающий список категорий-->
+    <!--
+      работаем с id объектов, чтобы корректно работали компоненты выпад. списка
+    -->
+    <mat-form-field color="warn" class="width">
+        <mat-label>Укажите категорию</mat-label>
+        <mat-select [(ngModel)]="newCategoryId">
+            <mat-option [value]="null">Без категории</mat-option>
+            <mat-option *ngFor="let cat of categories" [value]="cat.categoryId">
+                {{cat.categoryName}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field color="warn" class="width">
+        <mat-label>Показывать лейбл new?</mat-label>
+        <mat-select [(ngModel)]="newNewLabel">
+            <mat-option [value]="true">Да</mat-option>
+            <mat-option [value]="false">Нет</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br>
+
+
+    <!--    выпадающий список артибутов-->
+
+
+
+</mat-dialog-content>
+
+
+<!--  кнопки возможных действий-->
+<mat-dialog-actions>
+    <div class="col-md-8 col-12">
+        <div class="row">
+            <div class="col-6">
+                <button
+                        mat-raised-button color="warn"
+                        (click)="confirm()"
+                        [disabled]="inputTitle.value.trim().length==0 ||
+                                newStorageUnit.trim().length==0 ||
+                                newProductName.trim().length==0 ||
+                                newPrice==null ||
+                                newDiscountPrice==null ||
+                                newPrice.toString().trim().length==0 ||
+                                newDiscountPrice.toString().trim().length==0 ||
+                                newPrice<0 ||
+                                newDiscountPrice<0"
+                >
+                    Сохранить
+                </button>
+            </div>
+            <div class="col-6">
+                <button mat-raised-button (click)="cancel()">Отмена</button>
+            </div>
+        </div>
+    </div>
+
+    <!--  возможные операции над товаром-->
+
+    <div class="col-md-4 col-12 text-right">
+        <button
+                mat-button
+                [disabled]="canDelete==null"
+                (click)="delete()"
+        >
+            Удалить товар
+
+        </button>
+    </div>
+
+</mat-dialog-actions>
