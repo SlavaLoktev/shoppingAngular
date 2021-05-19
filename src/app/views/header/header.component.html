@@ -28,7 +28,7 @@
                     </ul>
                 </li>
                 <li class="navigation-item">
-                    <a href="#" class="navigation-link">Аксессуары</a>
+                    <a (click)="showCategory('')"  class="navigation-link">Аксессуары</a>
                     <ul class="sub-category-list">
                         <li *ngFor="let category of categories"><a class="sub-category-link">{{category.categoryName}}</a></li>
                     </ul>
@@ -46,7 +46,7 @@
 
 
 
-            <button class="button hover-border-1 button-margin-5 nav-button">
+            <button (click)="openShoppingCartDialog(productToShoppingCart)" class="button hover-border-1 button-margin-5 nav-button">
                 <i class="fa fa-shopping-cart fa-lg button-icon" aria-hidden="true"></i>
             </button>
 

@@ -21,6 +21,10 @@ export class ManCatalogComponent implements OnInit {
 
   filterTitle = '';
 
+  addProductToFavoritesFromMan: Product;
+
+  addProductToShoppingCartFromMan: Product;
+
   constructor(
       private productService: ProductService,
       private dialog: MatDialog
@@ -110,8 +114,12 @@ export class ManCatalogComponent implements OnInit {
     });
   }
 
-  // addProductToFavorites(product: Product): void {
-  //   this.addProductToFavoritesFromWoman = product;
-  // }
+  addProductToFavorites(product: Product): void {
+    this.addProductToFavoritesFromMan = product;
+  }
+
+  addProductToShoppingCart(product: Product): void{
+    this.addProductToShoppingCartFromMan = product;
+  }
 
 }

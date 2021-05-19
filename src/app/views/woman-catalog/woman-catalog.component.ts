@@ -30,6 +30,8 @@ export class WomanCatalogComponent implements OnInit {
 
   addProductToFavoritesFromWoman: Product;
 
+  addProductToShoppingCartFromWoman: Product;
+
   constructor(private productService: ProductService,
               private dialog: MatDialog) { }
 
@@ -132,6 +134,10 @@ export class WomanCatalogComponent implements OnInit {
 
   addProductToFavorites(product: Product): void {
     this.addProductToFavoritesFromWoman = product;
+  }
+
+  addProductToShoppingCart(product: Product): void{
+    this.addProductToShoppingCartFromWoman = product;
   }
 
 }

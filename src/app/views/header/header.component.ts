@@ -7,6 +7,7 @@ import {Product} from '../../model/Product';
 import {AddProductDialogComponent} from '../../dialog/add-product-dialog/add-product-dialog.component';
 import {FavoritesDialogComponent} from '../../dialog/favorites-dialog/favorites-dialog.component';
 import {MatDialog} from '@angular/material/dialog';
+import {ShoppingCartDialogComponent} from '../../dialog/shopping-cart-dialog/shopping-cart-dialog.component';
 
 @Component({
   selector: 'app-header',
@@ -52,6 +53,9 @@ export class HeaderComponent implements OnInit {
 
   @Input()
   productToFavorites: Product;
+
+  @Input()
+  productToShoppingCart: Product;
 
   products: Product[];
 
@@ -125,6 +129,13 @@ export class HeaderComponent implements OnInit {
   openFavoritesDialog(product: Product): void {
     const dialogRef = this.dialog.open(FavoritesDialogComponent, {
       data: [product, 'Избранное'],
+      autoFocus: false
+    });
+  }
+
+  openShoppingCartDialog(product: Product): void {
+    const dialogRef = this.dialog.open(ShoppingCartDialogComponent, {
+      data: [product, 'Корзина'],
       autoFocus: false
     });
   }

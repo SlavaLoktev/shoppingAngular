@@ -4,7 +4,7 @@
         <div (click)="openReadDialog(product)" class="col-2 div-favorites-shopping-card-image d-flex">
             <img class="favorites-shopping-card-image" src="{{product.image}}">
         </div>
-        <div (click)="openReadDialog(product)" class="col-8 div-favorites-shopping-card-text d-flex">
+        <div (click)="openReadDialog(product)" class="col-6 div-favorites-shopping-card-text d-flex">
             <div class="row">
                 <span class="d-inline-block favorites-shopping-card-name">{{product.productName}}</span>
             </div>
@@ -13,12 +13,27 @@
                 <span class="" *ngIf="product.discountPrice" style="color: #E31E25">Цена по скидке:{{product.discountPrice}}</span>
             </div>
         </div>
-        <div class="col-2">
-            <mat-dialog-actions>
-                <button class="button favorites-shopping-card-button">
-                    <i class="fa fa-shopping-cart fa-lg button-icon" aria-hidden="true"></i>
-                </button>
-            </mat-dialog-actions>
+        <div class="col-4">
+            <mat-form-field appearance="fill" color="warn">
+                <mat-label>Введите кол-во</mat-label>
+                <input matInput type="number" [(ngModel)]="newQuantity" min="1">
+                <span matSuffix>шт</span>
+                <mat-error *ngIf="newQuantity<1">Мин. значение 1</mat-error>
+            </mat-form-field>
         </div>
     </div>
 </mat-dialog-content>
+<mat-dialog-actions>
+    <div class="row">
+        <div class="col-12">
+            <button mat-raised-button (click)="openFillOrderDialog(product)" class="button"
+                    [disabled]="newQuantity==null ||
+                                newQuantity==0 ||
+                                newQuantity<0 ||
+                                newQuantity.toString().trim().length==0">
+                Оформить заказ
+            </button>
+        </div>
+
+    </div>
+</mat-dialog-actions>

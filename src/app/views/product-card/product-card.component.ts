@@ -59,6 +59,9 @@ export class ProductCardComponent implements OnInit {
   @Output()
   addProductToFavorites = new EventEmitter<Product>();
 
+  @Output()
+  addProductToShoppingCart = new EventEmitter<Product>();
+
   products: Product[];
   categories: Category[];
   attrValues: AttrValue[];
@@ -244,6 +247,8 @@ export class ProductCardComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
 
       if (!(result)) { // если просто закрыли окно, ничего не нажав
+        this.addProductToShoppingCart.emit(product);
+        console.log('продукт в productCard ' + product);
         return;
       }
     });

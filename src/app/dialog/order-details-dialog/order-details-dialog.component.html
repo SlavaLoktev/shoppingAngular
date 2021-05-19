@@ -1,0 +1,25 @@
+<mat-dialog-content>
+    <span mat-dialog-title>{{dialogTitle}}</span>
+    <div class="row">
+        <span mat-dialog-title>Товар: </span>
+        <img class="favorites-shopping-card-image" *ngIf="product.image" src="{{product.image}}">
+        <span>{{product.productName}}</span>
+        <span *ngIf="product.price">Цена: {{product.price}} &#8381;</span>
+        <span *ngIf="product.discountPrice">Цена по скидке: {{product.discountPrice}} &#8381;</span>
+        <span>Количество товара: {{orders.quantity}}</span>
+        <span>Описание: {{product.description}}</span>
+    </div>
+    <div class="row">
+        <span mat-dialog-title>Получатель: </span>
+        <span>Фамилия: {{orders.customerLastName}}</span>
+        <span>Имя: {{orders.customerFirstName}}</span>
+        <span>Адрес: {{orders.customerAddress}}</span>
+        <span>Email: {{orders.customerEmail}}</span>
+        <span>Телефон: {{orders.customerPhone}}</span>
+    </div>
+    <div class="row">
+        <span mat-dialog-title>Итог: </span>
+        <span>Дата заказа: {{orders.orderDate | date:"dd/MM/yyyy"}}</span>
+        <span>Сумма заказа: {{orders.orderTotal}} &#8381;</span>
+    </div>
+</mat-dialog-content>

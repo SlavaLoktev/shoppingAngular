@@ -1,0 +1,130 @@
+<mat-dialog-content>
+    <p mat-dialog-title>{{dialogTitle}}</p>
+    <!-- Имя   -->
+    <mat-form-field color="warn" class="width">
+        <mat-label>Имя (обязательно)</mat-label>
+        <input
+            #inputTitle
+            matInput
+
+            [(ngModel)]="newCustomerFirstName"
+        >
+        <button *ngIf="newCustomerFirstName && newCustomerFirstName.trim().length > 0"
+
+                mat-button matSuffix mat-icon-button aria-label="Clear"
+
+                (click)="newCustomerFirstName= ''" class="dialog-toto-title"
+
+        >
+            <mat-icon>clear</mat-icon>
+        </button>
+    </mat-form-field>
+    <br>
+
+    <!-- Фамилия   -->
+    <mat-form-field color="warn" class="width">
+        <mat-label>Фамилия (обязательно)</mat-label>
+        <input
+            #inputTitle
+            matInput
+
+            [(ngModel)]="newCustomerLastName"
+        >
+        <button *ngIf="newCustomerLastName && newCustomerLastName.trim().length > 0"
+
+                mat-button matSuffix mat-icon-button aria-label="Clear"
+
+                (click)="newCustomerLastName= ''" class="dialog-toto-title"
+
+        >
+            <mat-icon>clear</mat-icon>
+        </button>
+    </mat-form-field>
+    <br>
+
+    <!-- Адресс   -->
+    <mat-form-field color="warn" class="width">
+        <mat-label>Адресс (обязательно)</mat-label>
+        <input
+            #inputTitle
+            matInput
+
+            [(ngModel)]="newCustomerAddress"
+        >
+        <button *ngIf="newCustomerAddress && newCustomerAddress.trim().length > 0"
+
+                mat-button matSuffix mat-icon-button aria-label="Clear"
+
+                (click)="newCustomerAddress= ''" class="dialog-toto-title"
+
+        >
+            <mat-icon>clear</mat-icon>
+        </button>
+    </mat-form-field>
+    <br>
+
+    <!-- Email   -->
+    <mat-form-field color="warn" class="width">
+        <mat-label>Email (обязательно)</mat-label>
+        <input
+            #inputTitle
+            matInput
+
+            [(ngModel)]="newCustomerEmail"
+        >
+        <button *ngIf="newCustomerEmail && newCustomerEmail.trim().length > 0"
+
+                mat-button matSuffix mat-icon-button aria-label="Clear"
+
+                (click)="newCustomerEmail= ''" class="dialog-toto-title"
+
+        >
+            <mat-icon>clear</mat-icon>
+        </button>
+    </mat-form-field>
+    <br>
+
+    <!-- Телефон   -->
+    <mat-form-field color="warn" class="width">
+        <mat-label>Телефон (обязательно)</mat-label>
+        <input
+            #inputTitle
+            matInput
+
+            [(ngModel)]="newCustomerPhone"
+        >
+        <button *ngIf="newCustomerPhone && newCustomerPhone.trim().length > 0"
+
+                mat-button matSuffix mat-icon-button aria-label="Clear"
+
+                (click)="newCustomerPhone= ''" class="dialog-toto-title"
+
+        >
+            <mat-icon>clear</mat-icon>
+        </button>
+    </mat-form-field>
+    <br>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <div class="col-md-8 col-12">
+        <div class="row">
+            <div class="col-6">
+                <button
+                        mat-raised-button color="warn"
+                        (click)="confirm(); openFillOrderDetailsDialog(product, orders)"
+                        [disabled]="newCustomerLastName.trim().length==0 ||
+                                    newCustomerFirstName.trim().length==0 ||
+                                    newCustomerAddress.trim().length==0 ||
+                                    newCustomerEmail.trim().length==0 ||
+                                    newCustomerPhone.trim().length==0"
+
+                >
+                    Сохранить
+                </button>
+            </div>
+            <div class="col-6">
+                <button mat-raised-button (click)="cancel()">Отмена</button>
+            </div>
+        </div>
+    </div>
+</mat-dialog-actions>

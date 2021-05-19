@@ -15,11 +15,11 @@ import {ReadProductDialogComponent} from '../../dialog/read-product-dialog/read-
 import {AddProductDialogComponent} from '../../dialog/add-product-dialog/add-product-dialog.component';
 
 @Component({
-  selector: 'app-man-product-card',
-  templateUrl: './man-product-card.component.html',
-  styleUrls: ['./man-product-card.component.css']
+  selector: 'app-kid-product-card',
+  templateUrl: './kid-product-card.component.html',
+  styleUrls: ['./kid-product-card.component.css']
 })
-export class ManProductCardComponent implements OnInit {
+export class KidProductCardComponent implements OnInit {
 
   @Input('products')
   set setProducts(products: Product[]){
@@ -61,7 +61,7 @@ export class ManProductCardComponent implements OnInit {
 
   reviewsSearchValues = new ReviewsSearchValues();
 
-  filterTitle = 'мужские';
+  filterTitle = 'детские';
 
   constructor(
       private productService: ProductService,

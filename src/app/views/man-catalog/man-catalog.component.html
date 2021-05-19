@@ -1,6 +1,7 @@
 <app-header
             [showCRUD]="showCRUD"
-
+            [productToFavorites]="addProductToFavoritesFromMan"
+            [productToShoppingCart]="addProductToShoppingCartFromMan"
             (selectCategory)="selectCategory($event)"
             (toggleCRUD)="toggleCRUD($event)"
 ></app-header>
@@ -26,7 +27,8 @@
                                         (addProduct)="addProduct($event)"
                                         (deleteProduct)="deleteProduct($event)"
                                         (updateProduct)="updateProduct($event)"
-
+                                        (addProductToFavorites)="addProductToFavorites($event)"
+                                        (addProductToShoppingCart)="addProductToShoppingCart($event)"
                 ></app-man-product-card>
             </div>
         </div>

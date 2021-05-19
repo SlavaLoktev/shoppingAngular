@@ -1,242 +1,35 @@
-<app-header></app-header>
+<app-header [showCRUD]="showCRUD"
+            [productToFavorites]="addProductToFavoritesFromKid"
+            [productToShoppingCart]="addProductToShoppingCartFromKid"
+            (selectCategory)="selectCategory($event)"
+            (toggleCRUD)="toggleCRUD($event)"
+></app-header>
 <div class="content container">
     <div class="row head">
-        <span class="structure">Главная страница > Детям</span>
-        <h3 class="headline">Детская обувь</h3>
+        <div class="col-lg-9">
+            <span class="structure">Главная страница > Детям</span>
+            <h3 class="headline">Детская обувь</h3>
+        </div>
+        <div class="col-lg-3">
+            <form action="" class="d-flex search">
+                <input [(ngModel)]="filterTitle" name="filterTitle" type="search" placeholder="Я хочу найти..." class="form-control me-2">
+                <button (click)="initSearch()" class="btn btn-outline-danger">Поиск</button>
+            </form>
+        </div>
     </div>
     <div class="row main">
         <div class="col-lg-9 col-xs-6 col-md-9 col-sm-9 order-last card-place">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-sm-6">
-                        <a href="#" class="goods-card">
-                            <span class="label">New</span>
-                            <img src="assets/img/kid_shoe_card_image.jpg" alt="image: kid-shoe" class="goods-image-catalog">
-                            <h3 class="goods-title">Embroidered Hoodie</h3>
-                            <i class="fa fa-heart-o fa-lg heart-icon" aria-hidden="true"></i>
-                            <p class="goods-description">Yellow/Lilac/Fuchsia/Orange</p>
-                            <span class="goods-price">2550 &#8381;</span>
-                            <i class="fa fa-shopping-cart fa-lg shopping-cart-icon" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <a href="#" class="goods-card">
-                            <span class="label">New</span>
-                            <img src="img/kid_shoe_card_image.jpg" alt="image: kid-shoe" class="goods-image-catalog">
-                            <h3 class="goods-title">Embroidered Hoodie</h3>
-                            <i class="fa fa-heart-o fa-lg heart-icon" aria-hidden="true"></i>
-                            <p class="goods-description">Yellow/Lilac/Fuchsia/Orange</p>
-                            <span class="goods-price">2550 &#8381;</span>
-                            <i class="fa fa-shopping-cart fa-lg shopping-cart-icon" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <a href="#" class="goods-card">
-                            <span class="label">New</span>
-                            <img src="img/kid_shoe_card_image.jpg" alt="image: kid-shoe" class="goods-image-catalog">
-                            <h3 class="goods-title">Embroidered Hoodie</h3>
-                            <i class="fa fa-heart-o fa-lg heart-icon" aria-hidden="true"></i>
-                            <p class="goods-description">Yellow/Lilac/Fuchsia/Orange</p>
-                            <span class="goods-price">2550 &#8381;</span>
-                            <i class="fa fa-shopping-cart fa-lg shopping-cart-icon" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <a href="#" class="goods-card">
-                            <span class="label">New</span>
-                            <img src="img/kid_shoe_card_image.jpg" alt="image: kid-shoe" class="goods-image-catalog">
-                            <h3 class="goods-title">Embroidered Hoodie</h3>
-                            <i class="fa fa-heart-o fa-lg heart-icon" aria-hidden="true"></i>
-                            <p class="goods-description">Yellow/Lilac/Fuchsia/Orange</p>
-                            <span class="goods-price">2550 &#8381;</span>
-                            <i class="fa fa-shopping-cart fa-lg shopping-cart-icon" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-3 col-sm-6">
-                        <a href="#" class="goods-card">
-                            <span class="label">New</span>
-                            <img src="img/kid_shoe_card_image.jpg" alt="image: kid-shoe" class="goods-image-catalog">
-                            <h3 class="goods-title">Embroidered Hoodie</h3>
-                            <i class="fa fa-heart-o fa-lg heart-icon" aria-hidden="true"></i>
-                            <p class="goods-description">Yellow/Lilac/Fuchsia/Orange</p>
-                            <span class="goods-price">2550 &#8381;</span>
-                            <i class="fa fa-shopping-cart fa-lg shopping-cart-icon" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <a href="#" class="goods-card">
-                            <span class="label">New</span>
-                            <img src="img/kid_shoe_card_image.jpg" alt="image: kid-shoe" class="goods-image-catalog">
-                            <h3 class="goods-title">Embroidered Hoodie</h3>
-                            <i class="fa fa-heart-o fa-lg heart-icon" aria-hidden="true"></i>
-                            <p class="goods-description">Yellow/Lilac/Fuchsia/Orange</p>
-                            <span class="goods-price">2550 &#8381;</span>
-                            <i class="fa fa-shopping-cart fa-lg shopping-cart-icon" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <a href="#" class="goods-card">
-                            <span class="label">New</span>
-                            <img src="img/kid_shoe_card_image.jpg" alt="image: kid-shoe" class="goods-image-catalog">
-                            <h3 class="goods-title">Embroidered Hoodie</h3>
-                            <i class="fa fa-heart-o fa-lg heart-icon" aria-hidden="true"></i>
-                            <p class="goods-description">Yellow/Lilac/Fuchsia/Orange</p>
-                            <span class="goods-price">2550 &#8381;</span>
-                            <i class="fa fa-shopping-cart fa-lg shopping-cart-icon" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <a href="#" class="goods-card">
-                            <span class="label">New</span>
-                            <img src="img/kid_shoe_card_image.jpg" alt="image: kid-shoe" class="goods-image-catalog">
-                            <h3 class="goods-title">Embroidered Hoodie</h3>
-                            <i class="fa fa-heart-o fa-lg heart-icon" aria-hidden="true"></i>
-                            <p class="goods-description">Yellow/Lilac/Fuchsia/Orange</p>
-                            <span class="goods-price">2550 &#8381;</span>
-                            <i class="fa fa-shopping-cart fa-lg shopping-cart-icon" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-3 col-sm-6">
-                        <a href="#" class="goods-card">
-                            <span class="label">New</span>
-                            <img src="img/kid_shoe_card_image.jpg" alt="image: kid-shoe" class="goods-image-catalog">
-                            <h3 class="goods-title">Embroidered Hoodie</h3>
-                            <i class="fa fa-heart-o fa-lg heart-icon" aria-hidden="true"></i>
-                            <p class="goods-description">Yellow/Lilac/Fuchsia/Orange</p>
-                            <span class="goods-price">2550 &#8381;</span>
-                            <i class="fa fa-shopping-cart fa-lg shopping-cart-icon" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <a href="#" class="goods-card">
-                            <span class="label">New</span>
-                            <img src="img/kid_shoe_card_image.jpg" alt="image: kid-shoe" class="goods-image-catalog">
-                            <h3 class="goods-title">Embroidered Hoodie</h3>
-                            <i class="fa fa-heart-o fa-lg heart-icon" aria-hidden="true"></i>
-                            <p class="goods-description">Yellow/Lilac/Fuchsia/Orange</p>
-                            <span class="goods-price">2550 &#8381;</span>
-                            <i class="fa fa-shopping-cart fa-lg shopping-cart-icon" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <a href="#" class="goods-card">
-                            <span class="label">New</span>
-                            <img src="img/kid_shoe_card_image.jpg" alt="image: kid-shoe" class="goods-image-catalog">
-                            <h3 class="goods-title">Embroidered Hoodie</h3>
-                            <i class="fa fa-heart-o fa-lg heart-icon" aria-hidden="true"></i>
-                            <p class="goods-description">Yellow/Lilac/Fuchsia/Orange</p>
-                            <span class="goods-price">2550 &#8381;</span>
-                            <i class="fa fa-shopping-cart fa-lg shopping-cart-icon" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <a href="#" class="goods-card">
-                            <span class="label">New</span>
-                            <img src="img/kid_shoe_card_image.jpg" alt="image: kid-shoe" class="goods-image-catalog">
-                            <h3 class="goods-title">Embroidered Hoodie</h3>
-                            <i class="fa fa-heart-o fa-lg heart-icon" aria-hidden="true"></i>
-                            <p class="goods-description">Yellow/Lilac/Fuchsia/Orange</p>
-                            <span class="goods-price">2550 &#8381;</span>
-                            <i class="fa fa-shopping-cart fa-lg shopping-cart-icon" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-3 col-sm-6">
-                        <a href="#" class="goods-card">
-                            <span class="label">New</span>
-                            <img src="img/kid_shoe_card_image.jpg" alt="image: kid-shoe" class="goods-image-catalog">
-                            <h3 class="goods-title">Embroidered Hoodie</h3>
-                            <i class="fa fa-heart-o fa-lg heart-icon" aria-hidden="true"></i>
-                            <p class="goods-description">Yellow/Lilac/Fuchsia/Orange</p>
-                            <span class="goods-price">2550 &#8381;</span>
-                            <i class="fa fa-shopping-cart fa-lg shopping-cart-icon" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <a href="#" class="goods-card">
-                            <span class="label">New</span>
-                            <img src="img/kid_shoe_card_image.jpg" alt="image: kid-shoe" class="goods-image-catalog">
-                            <h3 class="goods-title">Embroidered Hoodie</h3>
-                            <i class="fa fa-heart-o fa-lg heart-icon" aria-hidden="true"></i>
-                            <p class="goods-description">Yellow/Lilac/Fuchsia/Orange</p>
-                            <span class="goods-price">2550 &#8381;</span>
-                            <i class="fa fa-shopping-cart fa-lg shopping-cart-icon" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <a href="#" class="goods-card">
-                            <span class="label">New</span>
-                            <img src="img/kid_shoe_card_image.jpg" alt="image: kid-shoe" class="goods-image-catalog">
-                            <h3 class="goods-title">Embroidered Hoodie</h3>
-                            <i class="fa fa-heart-o fa-lg heart-icon" aria-hidden="true"></i>
-                            <p class="goods-description">Yellow/Lilac/Fuchsia/Orange</p>
-                            <span class="goods-price">2550 &#8381;</span>
-                            <i class="fa fa-shopping-cart fa-lg shopping-cart-icon" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <a href="#" class="goods-card">
-                            <span class="label">New</span>
-                            <img src="img/kid_shoe_card_image.jpg" alt="image: kid-shoe" class="goods-image-catalog">
-                            <h3 class="goods-title">Embroidered Hoodie</h3>
-                            <i class="fa fa-heart-o fa-lg heart-icon" aria-hidden="true"></i>
-                            <p class="goods-description">Yellow/Lilac/Fuchsia/Orange</p>
-                            <span class="goods-price">2550 &#8381;</span>
-                            <i class="fa fa-shopping-cart fa-lg shopping-cart-icon" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-3 col-sm-6">
-                        <a href="#" class="goods-card">
-                            <span class="label">New</span>
-                            <img src="img/kid_shoe_card_image.jpg" alt="image: kid-shoe" class="goods-image-catalog">
-                            <h3 class="goods-title">Embroidered Hoodie</h3>
-                            <i class="fa fa-heart-o fa-lg heart-icon" aria-hidden="true"></i>
-                            <p class="goods-description">Yellow/Lilac/Fuchsia/Orange</p>
-                            <span class="goods-price">2550 &#8381;</span>
-                            <i class="fa fa-shopping-cart fa-lg shopping-cart-icon" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <a href="#" class="goods-card">
-                            <span class="label">New</span>
-                            <img src="img/kid_shoe_card_image.jpg" alt="image: kid-shoe" class="goods-image-catalog">
-                            <h3 class="goods-title">Embroidered Hoodie</h3>
-                            <i class="fa fa-heart-o fa-lg heart-icon" aria-hidden="true"></i>
-                            <p class="goods-description">Yellow/Lilac/Fuchsia/Orange</p>
-                            <span class="goods-price">2550 &#8381;</span>
-                            <i class="fa fa-shopping-cart fa-lg shopping-cart-icon" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <a href="#" class="goods-card">
-                            <span class="label">New</span>
-                            <img src="img/kid_shoe_card_image.jpg" alt="image: kid-shoe" class="goods-image-catalog">
-                            <h3 class="goods-title">Embroidered Hoodie</h3>
-                            <i class="fa fa-heart-o fa-lg heart-icon" aria-hidden="true"></i>
-                            <p class="goods-description">Yellow/Lilac/Fuchsia/Orange</p>
-                            <span class="goods-price">2550 &#8381;</span>
-                            <i class="fa fa-shopping-cart fa-lg shopping-cart-icon" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <a href="#" class="goods-card">
-                            <span class="label">New</span>
-                            <img src="img/kid_shoe_card_image.jpg" alt="image: kid-shoe" class="goods-image-catalog">
-                            <h3 class="goods-title">Embroidered Hoodie</h3>
-                            <i class="fa fa-heart-o fa-lg heart-icon" aria-hidden="true"></i>
-                            <p class="goods-description">Yellow/Lilac/Fuchsia/Orange</p>
-                            <span class="goods-price">2550 &#8381;</span>
-                            <i class="fa fa-shopping-cart fa-lg shopping-cart-icon" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </div>
+                <app-kid-product-card   [products]="products"
+                                        [showCRUD]="showCRUD"
+                                        (searchAction)="findProductsWithoutPaging($event)"
+                                        (addProduct)="addProduct($event)"
+                                        (deleteProduct)="deleteProduct($event)"
+                                        (updateProduct)="updateProduct($event)"
+                                        (addProductToFavorites)="addProductToFavorites($event)"
+                                        (addProductToShoppingCart)="addProductToShoppingCart($event)"
+                >
+                </app-kid-product-card>
             </div>
         </div>
         <div class="col-lg-3 col-xs-6 col-md-3 col-sm-3 order-first filter-place">

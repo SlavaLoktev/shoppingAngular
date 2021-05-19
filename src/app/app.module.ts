@@ -41,6 +41,11 @@ import { AddProductDialogComponent } from './dialog/add-product-dialog/add-produ
 import { FavoritesDialogComponent } from './dialog/favorites-dialog/favorites-dialog.component';
 import { ShoppingCartDialogComponent } from './dialog/shopping-cart-dialog/shopping-cart-dialog.component';
 import { ManProductCardComponent } from './views/man-product-card/man-product-card.component';
+import {ORDERS_URL_TOKEN} from './data/dao/impl/OrdersService';
+import {ORDERDETAILS_URL_TOKEN} from './data/dao/impl/OrderDetailsService';
+import { FillOrderDialogComponent } from './dialog/fill-order-dialog/fill-order-dialog.component';
+import { OrderDetailsDialogComponent } from './dialog/order-details-dialog/order-details-dialog.component';
+import { KidProductCardComponent } from './views/kid-product-card/kid-product-card.component';
 
 @NgModule({
     declarations: [
@@ -61,7 +66,10 @@ import { ManProductCardComponent } from './views/man-product-card/man-product-ca
         AddProductDialogComponent,
         FavoritesDialogComponent,
         ShoppingCartDialogComponent,
-        ManProductCardComponent
+        ManProductCardComponent,
+        FillOrderDialogComponent,
+        OrderDetailsDialogComponent,
+        KidProductCardComponent
     ],
     imports: [
         BrowserModule,
@@ -107,6 +115,14 @@ import { ManProductCardComponent } from './views/man-product-card/man-product-ca
         {
             provide: REVIEWS_URL_TOKEN,
             useValue: 'http://localhost:8080/reviews'
+        },
+        {
+            provide: ORDERS_URL_TOKEN,
+            useValue: 'http://localhost:8080/orders'
+        },
+        {
+            provide: ORDERDETAILS_URL_TOKEN,
+            useValue: 'http://localhost:8080/orderDetails'
         }
     ],
     entryComponents: [
@@ -115,7 +131,9 @@ import { ManProductCardComponent } from './views/man-product-card/man-product-ca
         ReadProductDialogComponent,
         AddProductDialogComponent,
         FavoritesDialogComponent,
-        ShoppingCartDialogComponent
+        ShoppingCartDialogComponent,
+        FillOrderDialogComponent,
+        OrderDetailsDialogComponent
     ],
     bootstrap: [AppComponent]
 })

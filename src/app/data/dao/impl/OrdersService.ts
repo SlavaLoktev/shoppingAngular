@@ -1,0 +1,22 @@
+import {Inject, Injectable, InjectionToken} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {PRODUCT_URL_TOKEN} from './ProductService';
+import {CommonService} from './CommonService';
+import {Product} from '../../../model/Product';
+import {Orders} from '../../../model/Orders';
+import {OrdersDAO} from '../interface/OrdersDAO';
+
+export const ORDERS_URL_TOKEN = new InjectionToken<string>('url');
+
+@Injectable({
+  providedIn: 'root'
+})
+export class OrdersService extends CommonService<Orders> implements OrdersDAO{
+
+  constructor(
+      @Inject(ORDERS_URL_TOKEN) private baseUrl,
+      private http: HttpClient // для выполнения HTTP запросов
+  ) {
+    super(baseUrl, http);
+  }
+}
