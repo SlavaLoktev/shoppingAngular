@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import Swiper from 'swiper';
 import {Category} from '../../model/Category';
 import {CategoryService} from '../../data/dao/impl/CategoryService';
-import {Department} from '../../model/Department';
 import {CategorySearchValues} from '../../data/dao/search/SearchObjects';
 
 @Component({
@@ -42,7 +41,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.slider();
-    // this.searchCategory(catego);
   }
 
 }

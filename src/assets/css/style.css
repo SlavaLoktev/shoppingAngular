@@ -544,6 +544,9 @@ html{
     .read-product-image{
         width: 450px;
     }
+    .admin-mode-text{
+        margin-right: 220px;
+    }
 }
 
 @media (min-width: 1400px){

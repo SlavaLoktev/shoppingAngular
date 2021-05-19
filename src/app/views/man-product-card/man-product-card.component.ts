@@ -8,7 +8,6 @@ import {ProductService} from '../../data/dao/impl/ProductService';
 import {MatDialog} from '@angular/material/dialog';
 import {CategoryService} from '../../data/dao/impl/CategoryService';
 import {ReviewsService} from '../../data/dao/impl/ReviewsService';
-import {EditProductDialogComponent} from '../../dialog/edit-product-dialog/edit-product-dialog.component';
 import {DialogAction} from '../../object/DialogResult';
 import {ConfirmDialogComponent} from '../../dialog/confirm-dialog/confirm-dialog.component';
 import {ReadProductDialogComponent} from '../../dialog/read-product-dialog/read-product-dialog.component';

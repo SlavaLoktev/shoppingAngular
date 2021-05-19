@@ -26,8 +26,6 @@ import {Reviews} from '../../model/Reviews';
 })
 export class ProductCardComponent implements OnInit {
 
-  productCards: Product[];
-
   @Input('products')
   set setProducts(products: Product[]){
     this.products = products;

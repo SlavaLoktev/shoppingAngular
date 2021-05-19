@@ -1,10 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Category} from '../../model/Category';
 import {CategoryService} from '../../data/dao/impl/CategoryService';
-import {Department} from '../../model/Department';
 import {CategorySearchValues, ProductSearchValuesWithoutPaging} from '../../data/dao/search/SearchObjects';
 import {Product} from '../../model/Product';
-import {AddProductDialogComponent} from '../../dialog/add-product-dialog/add-product-dialog.component';
 import {FavoritesDialogComponent} from '../../dialog/favorites-dialog/favorites-dialog.component';
 import {MatDialog} from '@angular/material/dialog';
 import {ShoppingCartDialogComponent} from '../../dialog/shopping-cart-dialog/shopping-cart-dialog.component';
@@ -16,7 +14,7 @@ import {ShoppingCartDialogComponent} from '../../dialog/shopping-cart-dialog/sho
 })
 export class HeaderComponent implements OnInit {
 
-  categories: Category[];
+
 
   constructor(
       private dialog: MatDialog, // работа с диалоговым окном
@@ -27,23 +25,6 @@ export class HeaderComponent implements OnInit {
   set setCategories(categories: Category[]) {
     this.categories = categories;
   }
-
-  @Output()
-  searchCategory = new EventEmitter<CategorySearchValues>(); // передаем строку для поиска(в <> было string по дефолту)
-
-  @Output()
-  selectCategory = new EventEmitter<string>();
-
-  // параметры поиска категорий
-  // categorySearchValues: CategorySearchValues;
-  categorySearchValues = new CategorySearchValues();
-  filterTitle = 1;
-
-  productSearchValuesWithoutPaging: ProductSearchValuesWithoutPaging;
-
-  selectedCategory = '';
-
-  // filterProductName = '';
 
   @Input()
   showCRUD: boolean;
@@ -56,6 +37,24 @@ export class HeaderComponent implements OnInit {
 
   @Input()
   productToShoppingCart: Product;
+
+  @Output()
+  searchCategory = new EventEmitter<CategorySearchValues>(); // передаем строку для поиска(в <> было string по дефолту)
+
+  @Output()
+  selectCategory = new EventEmitter<string>();
+
+  categories: Category[];
+  // параметры поиска категорий
+  // categorySearchValues: CategorySearchValues;
+  categorySearchValues = new CategorySearchValues();
+  filterTitle = 1;
+
+  productSearchValuesWithoutPaging: ProductSearchValuesWithoutPaging;
+
+  selectedCategory = '';
+
+  // filterProductName = '';
 
   products: Product[];
 
@@ -120,10 +119,6 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.categories = this.dataHandler.getCategories();
-    // this.dataHandler.categoriesSubject.subscribe(categories => this.categories = categories);
-    // this.search();
-    // this.searchProductsWithoutPaging(this.filterProductName);
   }
 
   openFavoritesDialog(product: Product): void {

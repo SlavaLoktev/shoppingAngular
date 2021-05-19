@@ -126,7 +126,7 @@ export class EditProductDialogComponent implements OnInit {
     this.product.image = this.newImage;
     this.product.categories = this.findCategoryById(this.newCategoryId);
     this.product.newLabel = this.newNewLabel;
-    // this.product.oldCategory = this.findCategoryById(this.oldCategoryId); // TODO пофиксить категории
+    // this.product.oldCategory = this.findCategoryById(this.oldCategoryId);
     console.log(this.product.categories);
     console.log(this.product);
     // передаем добавленную/измененную задачу в обработчик

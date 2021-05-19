@@ -27,12 +27,7 @@
                         <li routerLink="/kidCatalog" *ngFor="let category of categories"><a (click)="showCategory(category.categoryName + ' детские')" class="sub-category-link">{{category.categoryName}}</a></li>
                     </ul>
                 </li>
-                <li class="navigation-item">
-                    <a (click)="showCategory('')"  class="navigation-link">Аксессуары</a>
-                    <ul class="sub-category-list">
-                        <li *ngFor="let category of categories"><a class="sub-category-link">{{category.categoryName}}</a></li>
-                    </ul>
-                </li>
+
 
 
 

@@ -13,7 +13,6 @@ export class GoodInfoComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    //  this.goodInfoCards = this.dataHandler.getProductCards();
   }
 
 }

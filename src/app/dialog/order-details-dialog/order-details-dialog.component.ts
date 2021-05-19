@@ -1,7 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {Product} from '../../model/Product';
-import {OrdersService} from '../../data/dao/impl/OrdersService';
 import {Orders} from '../../model/Orders';
 import {OrderDetailsService} from '../../data/dao/impl/OrderDetailsService';
 

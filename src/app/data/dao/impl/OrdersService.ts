@@ -1,8 +1,6 @@
 import {Inject, Injectable, InjectionToken} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {PRODUCT_URL_TOKEN} from './ProductService';
 import {CommonService} from './CommonService';
-import {Product} from '../../../model/Product';
 import {Orders} from '../../../model/Orders';
 import {OrdersDAO} from '../interface/OrdersDAO';
 

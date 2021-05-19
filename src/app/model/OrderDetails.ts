@@ -6,18 +6,15 @@ export class OrderDetails{
     quantity: number;
     order: Orders;
     product: Product;
-    unitPrice?: number;
 
 
     constructor(orderDetailId: number,
                 quantity: number,
                 order: Orders,
-                product: Product,
-                unitPrice?: number, ) {
+                product: Product) {
         this.orderDetailId = orderDetailId;
         this.quantity = quantity;
         this.order = order;
         this.product = product;
-        this.unitPrice = unitPrice;
     }
 }

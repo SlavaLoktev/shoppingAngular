@@ -1,8 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {Product} from '../../model/Product';
-import {Category} from '../../model/Category';
-import {AttrValue} from '../../model/AttrValue';
 import {AddProductDialogComponent} from '../add-product-dialog/add-product-dialog.component';
 import {Reviews} from '../../model/Reviews';
 import {ReviewsSearchValues} from '../../data/dao/search/SearchObjects';

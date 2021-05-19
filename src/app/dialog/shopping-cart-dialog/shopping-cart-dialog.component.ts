@@ -2,7 +2,6 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {Product} from '../../model/Product';
 import {ReadProductDialogComponent} from '../read-product-dialog/read-product-dialog.component';
-import {EditProductDialogComponent} from '../edit-product-dialog/edit-product-dialog.component';
 import {FillOrderDialogComponent} from '../fill-order-dialog/fill-order-dialog.component';
 import {DialogAction} from '../../object/DialogResult';
 import {OrdersService} from '../../data/dao/impl/OrdersService';
@@ -38,22 +37,16 @@ export class ShoppingCartDialogComponent implements OnInit {
 
   openFillOrderDialog(product: Product): void{
 
-    // if (product.discountPrice !== 0 || product.discountPrice !== null){
-    //   this.orderTotal = this.newQuantity * product.discountPrice;
-    // }else {
-    //   this.orderTotal = this.newQuantity * product.price;
-    // }
-
     if (product.discountPrice === 0 || product.discountPrice === null){
-      this.orderTotal = this.newQuantity * product.price;
+      this.orderTotal = Math.trunc(this.newQuantity) * product.price;
     }else {
-      this.orderTotal = this.newQuantity * product.discountPrice;
+      this.orderTotal = Math.trunc(this.newQuantity) * product.discountPrice;
     }
 
-    const orders = new Orders(null, this.newQuantity, '', '', '', '', '', this.orderDate, this.orderTotal);
+    const orders = new Orders(null, Math.trunc(this.newQuantity), '', '', '', '', '', this.orderDate, this.orderTotal);
 
     const dialogRef = this.dialog.open(FillOrderDialogComponent, {
-      data: [product, 'Заполнение заказа', this.newQuantity, orders],
+      data: [product, 'Заполнение заказа', Math.trunc(this.newQuantity), orders],
       autoFocus: false
     });
 

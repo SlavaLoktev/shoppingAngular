@@ -1,12 +1,10 @@
 import {Inject, Injectable, InjectionToken} from '@angular/core';
 import {ProductDAO} from '../interface/ProductDAO';
 import {HttpClient} from '@angular/common/http';
-import {CategorySearchValues, ProductSearchValues, ProductSearchValuesWithoutPaging} from '../search/SearchObjects';
+import {ProductSearchValues, ProductSearchValuesWithoutPaging} from '../search/SearchObjects';
 import {Observable} from 'rxjs';
-import {Category} from '../../../model/Category';
 import {Product} from '../../../model/Product';
 import {CommonService} from './CommonService';
-import {CATEGORY_URL_TOKEN} from './CategoryService';
 
 export const PRODUCT_URL_TOKEN = new InjectionToken<string>('url');
 
