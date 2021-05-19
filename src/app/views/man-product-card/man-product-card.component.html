@@ -7,7 +7,7 @@
     <div class="col-lg-3 col-sm-6" *ngFor="let product of products">
         <a  class="goods-card">
             <span *ngIf="product.newLabel==true" class="label">New</span>
-            <img (click)="openReadDialog(product)" *ngIf="!product.image" src="assets/img/woman_shoe_card_image.png" alt="image: woman-shoe" class="goods-image-catalog cursor-pointer">
+            <img (click)="openReadDialog(product)" *ngIf="!product.image" src="assets/img/man_shoe_card_image.png" alt="image: woman-shoe" class="goods-image-catalog cursor-pointer">
             <img (click)="openReadDialog(product)" *ngIf="product.image" src="{{product.image}}" alt="image: woman-shoe" class="goods-image-catalog cursor-pointer">
             <h3 (click)="openReadDialog(product)" class="goods-title cursor-pointer">{{product.productName}}</h3>
             <button (click)="openAddToFavoritesDialog(product)"class="fa fa-heart-o fa-lg heart-icon button-favorites" aria-hidden="true"></button>
