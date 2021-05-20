@@ -19,14 +19,9 @@ export class WomanCatalogComponent implements OnInit {
 
   productSearchValuesWithoutPaging = new ProductSearchValuesWithoutPaging();
 
-  // значение для поиска
-  // filterTitle: string;
   filterTitle = '';
 
   showCRUD: boolean;
-
-  // @Output()
-  // searchAction = new EventEmitter<ProductSearchValuesWithoutPaging>();
 
   addProductToFavoritesFromWoman: Product;
 
@@ -34,15 +29,6 @@ export class WomanCatalogComponent implements OnInit {
 
   constructor(private productService: ProductService,
               private dialog: MatDialog) { }
-
-  // searchProducts(productSearchValues: ProductSearchValues): void {
-  //   this.productSearchValues = productSearchValues;
-  //
-  //   this.productService.findProducts(this.productSearchValues).subscribe(result => {
-  //     this.products = result;
-  //     console.log(result);
-  //   });
-  // }
 
   selectCategory(category: string): void{
     this.selectedCategory = category;
@@ -68,8 +54,6 @@ export class WomanCatalogComponent implements OnInit {
 
     this.productSearchValuesWithoutPaging.productName = this.filterTitle;
     console.log(this.productSearchValuesWithoutPaging.productName);
-    // this.searchAction.emit(this.productSearchValuesWithoutPaging);
-    // this.findProductsWithoutPaging(this.productSearchValuesWithoutPaging);
     this.productService.findProductsWithoutPaging(this.productSearchValuesWithoutPaging).subscribe(result => {
       this.products = result;
       console.log(result);
@@ -80,8 +64,6 @@ export class WomanCatalogComponent implements OnInit {
 
     this.productSearchValuesWithoutPaging.productName = this.filterTitle + ' женские';
     console.log(this.productSearchValuesWithoutPaging.productName);
-    // this.searchAction.emit(this.productSearchValuesWithoutPaging);
-    // this.findProductsWithoutPaging(this.productSearchValuesWithoutPaging);
     this.productService.findProductsWithoutPaging(this.productSearchValuesWithoutPaging).subscribe(result => {
       this.products = result;
       console.log(result);
@@ -108,26 +90,22 @@ export class WomanCatalogComponent implements OnInit {
 
   ngOnInit(): void {
     this.leftbar();
-    // this.searchProducts(this.productSearchValues);
   }
 
   addProduct(product: Product): void {
     this.productService.add(product).subscribe(result => {
-      // this.findProductsWithoutPaging(this.productSearchValuesWithoutPaging); // обновляем список товаров
       this.initSearchAfterCRUD();
     });
   }
 
   updateProduct(product: Product): void {
     this.productService.update(product).subscribe(result => {
-      // this.findProductsWithoutPaging(this.productSearchValuesWithoutPaging);
       this.initSearchAfterCRUD();
     });
   }
 
   deleteProduct(product: Product): void {
     this.productService.delete(product.productId).subscribe(result => {
-      // this.findProductsWithoutPaging(this.productSearchValuesWithoutPaging);
       this.initSearchAfterCRUD();
     });
   }

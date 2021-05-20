@@ -14,12 +14,11 @@ export class OrderDetailsDialogComponent implements OnInit {
   constructor(
       private dialogRef: MatDialogRef<OrderDetailsDialogComponent>,
       @Inject(MAT_DIALOG_DATA) private data: [Product, string, Orders],
-      // данные, которые передаем в текущее диалоговое окно
-      private dialog: MatDialog, // для открытия нового диалогового окна (из текущего) - например для подтверждения удаления
+      private dialog: MatDialog,
       private orderDetailsService: OrderDetailsService
   ) { }
 
-  dialogTitle: string; // заголовок окна
+  dialogTitle: string;
   product: Product;
   orders: Orders;
 

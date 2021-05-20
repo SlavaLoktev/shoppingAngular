@@ -1,7 +1,6 @@
 <mat-dialog-content>
     <p mat-dialog-title>{{dialogTitle}}</p>
 
-    <!--название товара    -->
     <mat-form-field color="warn" class="width">
         <mat-label>Наименование (обязательно)</mat-label>
         <input
@@ -22,7 +21,6 @@
     </mat-form-field>
     <br>
 
-    <!--цена товара    -->
     <mat-form-field color="warn" class="width">
         <mat-label>Цена (обязательно)</mat-label>
         <mat-label *ngIf="newPrice<0"> Цена должна быть > 0</mat-label>
@@ -42,7 +40,6 @@
     </mat-form-field>
     <br>
 
-    <!--цена со скидкой    -->
     <mat-form-field color="warn" class="width">
         <mat-label>Цена со скидкой (обязательно)</mat-label>
         <mat-label *ngIf="newDiscountPrice<0"> Цена должна быть > 0</mat-label>
@@ -65,7 +62,6 @@
     </mat-form-field>
     <br>
 
-    <!--единицы измерения товара (пар/шт)    -->
     <mat-form-field color="warn" class="width">
         <mat-label>Единицы измерения товара (обязательно)</mat-label>
         <input
@@ -74,7 +70,7 @@
 
             [(ngModel)]="newStorageUnit"
 
-            (keydown.enter)="confirm()"> <!-- по нажатию на enter можем сразу сохранить задачу -->
+            (keydown.enter)="confirm()">
 
         <button *ngIf="newStorageUnit && newStorageUnit.trim().length > 0"
                 mat-button matSuffix mat-icon-button aria-label="Clear"
@@ -86,7 +82,6 @@
     </mat-form-field>
     <br>
 
-    <!--описание товара    -->
     <mat-form-field color="warn" class="width">
         <mat-label>Описание</mat-label>
         <input
@@ -107,7 +102,6 @@
     </mat-form-field>
     <br>
 
-    <!--большое изображение товара    -->
     <mat-form-field color="warn" class="width">
         <mat-label>Изображение товара</mat-label>
         <input
@@ -128,8 +122,6 @@
     </mat-form-field>
     <br>
 
-
-    <!--    выпадающий список категорий-->
     <!--
       работаем с id объектов, чтобы корректно работали компоненты выпад. списка
     -->
@@ -161,7 +153,6 @@
 </mat-dialog-content>
 
 
-<!--  кнопки возможных действий-->
 <mat-dialog-actions>
     <div class="col-md-8 col-12">
         <div class="row">
@@ -187,8 +178,6 @@
             </div>
         </div>
     </div>
-
-    <!--  возможные операции над товаром-->
 
     <div class="col-md-4 col-12 text-right">
         <button

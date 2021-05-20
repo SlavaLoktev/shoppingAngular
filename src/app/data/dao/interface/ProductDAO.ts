@@ -5,8 +5,6 @@ import {ProductSearchValues, ProductSearchValuesWithoutPaging} from '../search/S
 
 export interface ProductDAO extends CommonDAO<Product> {
 
-    // поиск категорий по любым параметрам, указанным в ProductSearchValues
-    // если какой либо параметр равен null - он не будет учитываться при поиске
     findProducts(productSearchValues: ProductSearchValues): Observable<any>;
 
     findProductsWithoutPaging(productSearchValuesWithoutPaging: ProductSearchValuesWithoutPaging): Observable<any>;

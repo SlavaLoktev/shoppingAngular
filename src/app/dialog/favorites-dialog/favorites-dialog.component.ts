@@ -13,11 +13,10 @@ export class FavoritesDialogComponent implements OnInit {
   constructor(
       private dialogRef: MatDialogRef<FavoritesDialogComponent>,
       @Inject(MAT_DIALOG_DATA) private data: [Product, string],
-      // данные, которые передаем в текущее диалоговое окно
-      private dialog: MatDialog // для открытия нового диалогового окна (из текущего) - например для подтверждения удаления
+      private dialog: MatDialog
   ) { }
 
-  dialogTitle: string; // заголовок окна
+  dialogTitle: string;
   product: Product;
 
   ngOnInit(): void {

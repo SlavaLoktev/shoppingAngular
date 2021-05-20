@@ -8,15 +8,13 @@ import {CommonService} from './CommonService';
 
 export const CATEGORY_URL_TOKEN = new InjectionToken<string>('url');
 
-// класс реализовывает методы доступа к данным с помощью RESTful запросов в формате JSON
-// JSON формируется автоматически для параметров и результатов
 @Injectable({
   providedIn: 'root'
 })
 export class CategoryService extends CommonService<Category> implements CategoryDAO{
 
   constructor(@Inject(CATEGORY_URL_TOKEN) private baseUrl,
-              private http: HttpClient // для выполнения HTTP запросов
+              private http: HttpClient
   ) {
       super(baseUrl, http);
   }

@@ -13,7 +13,7 @@ export class OrderDetailsService extends CommonService<OrderDetails> implements 
 
   constructor(
       @Inject(ORDERDETAILS_URL_TOKEN) private baseUrl,
-      private http: HttpClient // для выполнения HTTP запросов
+      private http: HttpClient
   ) {
     super(baseUrl, http);
   }

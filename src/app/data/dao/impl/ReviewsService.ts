@@ -14,7 +14,7 @@ export const REVIEWS_URL_TOKEN = new InjectionToken<string>('url');
 export class ReviewsService extends CommonService<Reviews> implements ReviewsDAO{
 
   constructor(@Inject(REVIEWS_URL_TOKEN) private baseUrl,
-              private http: HttpClient // для выполнения HTTP запросов
+              private http: HttpClient
   ) {
     super(baseUrl, http);
   }

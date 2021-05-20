@@ -65,7 +65,7 @@ export class ManProductCardComponent implements OnInit {
 
   constructor(
       private productService: ProductService,
-      private dialog: MatDialog, // работа с диалоговым окном
+      private dialog: MatDialog,
       private categoryService: CategoryService,
       private reviewsService: ReviewsService
   ) { }
@@ -82,11 +82,6 @@ export class ManProductCardComponent implements OnInit {
     console.log('find reviews(): product.id = ' + product.productId);
     this.reviewsSearchValues.product = product.productId;
     this.reviewsService.findReviews(this.reviewsSearchValues).subscribe(result => {
-      // for (const review of this.reviews){
-      //   if (product.productId === review.productId.productId){
-      //     this.reviews = result;
-      //   }
-      // }
       this.reviews = result;
       console.log('find reviews(): reviewsSearchValues.productId = ' + this.reviewsSearchValues.product);
       console.log('find reviews(): ' + this.reviews);
@@ -97,30 +92,26 @@ export class ManProductCardComponent implements OnInit {
     this.findProductsWithoutPaging(this.productSearchValuesWithoutPaging);
   }
 
-  // диалоговое окно для добавления товара
   openAddDialog(): void {
     const product = new Product(null, '', '', null, null, '', this.selectedCategory);
 
     const dialogRef = this.dialog.open(EditProductDialogManComponent, {
 
-      // передаем новый пустой объект  для заполнения
-      // также передаем справочные данные (категории, атрибуты)
-      data: [product, 'Добавление товара', this.categories, this.attrValues] //             мб добавить поля!!!!!
+      data: [product, 'Добавление товара', this.categories, this.attrValues]
     });
 
     dialogRef.afterClosed().subscribe(result => {
 
-      if (!(result)) { // если просто закрыли окно, ничего не нажав
+      if (!(result)) {
         return;
       }
 
-      if (result.action === DialogAction.SAVE) { // если нажали ОК
+      if (result.action === DialogAction.SAVE) {
         this.addProduct.emit(product);
       }
     });
   }
 
-  // диалоговое окно редактирования для добавления товара
   openEditDialog(product: Product): void {
     const dialogRef = this.dialog.open(EditProductDialogManComponent, {
       data: [product, 'Редактирование товара', this.categories],
@@ -129,7 +120,7 @@ export class ManProductCardComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
 
-      if (!(result)) { // если просто закрыли окно, ничего не нажав
+      if (!(result)) {
         return;
       }
 
@@ -138,14 +129,13 @@ export class ManProductCardComponent implements OnInit {
         return;
       }
 
-      if (result.action === DialogAction.SAVE) { // если нажали ОК и есть результат
+      if (result.action === DialogAction.SAVE) {
         this.updateProduct.emit(product);
         return;
       }
     });
   }
 
-  // диалоговое окно подтверждения удаления
   openDeleteDialog(product: Product): void {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       maxWidth: '500px',
@@ -155,27 +145,25 @@ export class ManProductCardComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
 
-      if (!(result)) { // если просто закрыли окно, ничего не нажав
+      if (!(result)) {
         return;
       }
 
-      if (result.action === DialogAction.OK) { // если нажали ОК
+      if (result.action === DialogAction.OK) {
         this.deleteProduct.emit(product);
       }
     });
   }
 
   openReadDialog(product: Product): void {
-    // this.findReviews(product);
     const dialogRef = this.dialog.open(ReadProductDialogComponent, {
-      data: [product, 'Информация о товаре'/*, this.reviews*/],
+      data: [product, 'Информация о товаре'],
       autoFocus: false
     });
-    // console.log('openReadDialog(): ' + this.reviews);
 
     dialogRef.afterClosed().subscribe(result => {
 
-      if (!(result)) { // если просто закрыли окно, ничего не нажав
+      if (!(result)) {
         return;
       }
     });
@@ -189,7 +177,7 @@ export class ManProductCardComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
 
-      if (!(result)) { // если просто закрыли окно, ничего не нажав
+      if (!(result)) {
         this.addProductToFavorites.emit(product);
         console.log('продукт в productCard ' + product);
         return;
@@ -205,7 +193,7 @@ export class ManProductCardComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
 
-      if (!(result)) { // если просто закрыли окно, ничего не нажав
+      if (!(result)) {
         this.addProductToShoppingCart.emit(product);
         console.log('продукт в productCard ' + product);
         return;

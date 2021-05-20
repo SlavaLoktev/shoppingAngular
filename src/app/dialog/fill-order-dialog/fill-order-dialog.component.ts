@@ -20,15 +20,14 @@ export class FillOrderDialogComponent implements OnInit {
   constructor(
       private dialogRef: MatDialogRef<FillOrderDialogComponent>,
       @Inject(MAT_DIALOG_DATA) private data: [Product, string, number, Orders],
-      // данные, которые передаем в текущее диалоговое окно
-      private dialog: MatDialog, // для открытия нового диалогового окна (из текущего) - например для подтверждения удаления
+      private dialog: MatDialog,
       private ordersService: OrdersService,
       private orderDetailsService: OrderDetailsService
   ) { }
 
   product: Product;
   orders: Orders;
-  dialogTitle: string; // заголовок окна
+  dialogTitle: string;
   quantity: number;
   currentDate = new Date();
   orderDate: string;
@@ -57,7 +56,6 @@ export class FillOrderDialogComponent implements OnInit {
     this.newCustomerEmail = this.orders.customerEmail;
     this.newCustomerPhone = this.orders.customerPhone;
     this.quantity = this.orders.quantity;
-    // this.orderDate = this.orders.orderDate;
   }
 
   openFillOrderDetailsDialog(product: Product, orders: Orders): void{
@@ -75,7 +73,6 @@ export class FillOrderDialogComponent implements OnInit {
     });
   }
 
-  // нажали ОК
   confirm(): void {
     this.orders.customerFirstName = this.newCustomerFirstName;
     this.orders.customerLastName = this.newCustomerLastName;
@@ -83,14 +80,11 @@ export class FillOrderDialogComponent implements OnInit {
     this.orders.customerEmail = this.newCustomerEmail;
     this.orders.customerPhone = this.newCustomerPhone;
     this.orders.quantity = this.quantity;
-    // this.orders.orderDate = this.orderDate;
     console.log(this.orders);
-    // this.ordersService.add(this.orders);
     this.dialogRef.close(new DialogResult(DialogAction.SAVE, this.orders));
 
   }
 
-  // нажали отмену (ничего не сохраняем и закрываем окно)
   cancel(): void {
     this.dialogRef.close(new DialogResult(DialogAction.CANCEL));
   }

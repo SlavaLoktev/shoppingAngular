@@ -13,22 +13,20 @@ export class ConfirmDialogComponent implements OnInit {
   message: string;
 
   constructor(
-      private dialogRef: MatDialogRef<ConfirmDialogComponent>, // для работы с текущим диалог. окном
-      @Inject(MAT_DIALOG_DATA) private data: { dialogTitle: string, message: string } // данные, которые передали в диалоговое окно
+      private dialogRef: MatDialogRef<ConfirmDialogComponent>,
+      @Inject(MAT_DIALOG_DATA) private data: { dialogTitle: string, message: string }
   ) {
-    this.dialogTitle = data.dialogTitle; // заголовок
-    this.message = data.message; // сообщение
+    this.dialogTitle = data.dialogTitle;
+    this.message = data.message;
   }
 
   ngOnInit(): void {
   }
 
-  // нажали ОК
   confirm(): void {
     this.dialogRef.close(new DialogResult(DialogAction.OK));
   }
 
-  // нажали отмену
   cancel(): void {
     this.dialogRef.close(new DialogResult(DialogAction.CANCEL));
   }

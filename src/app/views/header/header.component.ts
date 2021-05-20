@@ -14,10 +14,8 @@ import {ShoppingCartDialogComponent} from '../../dialog/shopping-cart-dialog/sho
 })
 export class HeaderComponent implements OnInit {
 
-
-
   constructor(
-      private dialog: MatDialog, // работа с диалоговым окном
+      private dialog: MatDialog,
       private categoryService: CategoryService
   ) { }
 
@@ -39,14 +37,12 @@ export class HeaderComponent implements OnInit {
   productToShoppingCart: Product;
 
   @Output()
-  searchCategory = new EventEmitter<CategorySearchValues>(); // передаем строку для поиска(в <> было string по дефолту)
+  searchCategory = new EventEmitter<CategorySearchValues>();
 
   @Output()
   selectCategory = new EventEmitter<string>();
 
   categories: Category[];
-  // параметры поиска категорий
-  // categorySearchValues: CategorySearchValues;
   categorySearchValues = new CategorySearchValues();
   filterTitle = 1;
 
@@ -54,27 +50,12 @@ export class HeaderComponent implements OnInit {
 
   selectedCategory = '';
 
-  // filterProductName = '';
-
   products: Product[];
-
-  // @Input('products')
-  // set setProducts(products: Product[]) {
-  //   this.products = products;
-  // }
-  //
-  // @Output()
-  // searchProduct = new EventEmitter<ProductSearchValuesWithoutPaging>();
 
   search(): void {
     this.categorySearchValues.departmentId = this.filterTitle;
     this.searchCategory.emit(this.categorySearchValues);
   }
-
-  // searchProductsWithoutPaging(filterProductName: string): void {
-  //   this.productSearchValuesWithoutPaging.productName = filterProductName;
-  //   this.searchProduct.emit(this.productSearchValuesWithoutPaging);
-  // }
 
   showCategory(category: string): void {
     if (this.selectedCategory === category) {
@@ -91,7 +72,6 @@ export class HeaderComponent implements OnInit {
 
   findCategories(categorySearchValues: CategorySearchValues): void{
     this.categorySearchValues = categorySearchValues;
-    // this.categorySearchValues.departmentId = 1;
     this.categoryService.findCategories(this.categorySearchValues).subscribe(result => {
       this.categories = result;
     });

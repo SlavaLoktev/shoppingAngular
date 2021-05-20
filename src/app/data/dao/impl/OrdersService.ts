@@ -13,7 +13,7 @@ export class OrdersService extends CommonService<Orders> implements OrdersDAO{
 
   constructor(
       @Inject(ORDERS_URL_TOKEN) private baseUrl,
-      private http: HttpClient // для выполнения HTTP запросов
+      private http: HttpClient
   ) {
     super(baseUrl, http);
   }

@@ -9,8 +9,8 @@ export class CommonService<T> {
 
   private readonly url: string;
 
-  constructor(url: string, // базовый URL для доступа к данным
-              private httpClient: HttpClient // для выполнения HTTP запросов
+  constructor(url: string,
+              private httpClient: HttpClient
   ) {this.url = url; }
 
   add(t: T): Observable<T> {

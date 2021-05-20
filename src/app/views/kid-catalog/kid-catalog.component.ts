@@ -54,8 +54,6 @@ export class KidCatalogComponent implements OnInit {
 
     this.productSearchValuesWithoutPaging.productName = this.filterTitle;
     console.log(this.productSearchValuesWithoutPaging.productName);
-    // this.searchAction.emit(this.productSearchValuesWithoutPaging);
-    // this.findProductsWithoutPaging(this.productSearchValuesWithoutPaging);
     this.productService.findProductsWithoutPaging(this.productSearchValuesWithoutPaging).subscribe(result => {
       this.products = result;
       console.log(result);
@@ -66,8 +64,6 @@ export class KidCatalogComponent implements OnInit {
 
     this.productSearchValuesWithoutPaging.productName = this.filterTitle + ' детские';
     console.log(this.productSearchValuesWithoutPaging.productName);
-    // this.searchAction.emit(this.productSearchValuesWithoutPaging);
-    // this.findProductsWithoutPaging(this.productSearchValuesWithoutPaging);
     this.productService.findProductsWithoutPaging(this.productSearchValuesWithoutPaging).subscribe(result => {
       this.products = result;
       console.log(result);

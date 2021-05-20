@@ -17,13 +17,12 @@ export class ShoppingCartDialogComponent implements OnInit {
   constructor(
       private dialogRef: MatDialogRef<ShoppingCartDialogComponent>,
       @Inject(MAT_DIALOG_DATA) private data: [Product, string],
-      // данные, которые передаем в текущее диалоговое окно
-      private dialog: MatDialog, // для открытия нового диалогового окна (из текущего) - например для подтверждения удаления
+      private dialog: MatDialog,
       private ordersService: OrdersService
   ) { }
 
   newQuantity: number;
-  dialogTitle: string; // заголовок окна
+  dialogTitle: string;
   product: Product;
   orders: Orders;
   orderDate = new Date();
@@ -52,7 +51,7 @@ export class ShoppingCartDialogComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
 
-      if (!(result)) { // если просто закрыли окно, ничего не нажав
+      if (!(result)) {
         return;
       }
 
@@ -71,7 +70,7 @@ export class ShoppingCartDialogComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
 
-      if (!(result)) { // если просто закрыли окно, ничего не нажав
+      if (!(result)) {
         return;
       }
     });

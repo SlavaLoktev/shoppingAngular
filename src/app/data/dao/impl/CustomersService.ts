@@ -12,7 +12,7 @@ export const CUSTOMERS_URL_TOKEN = new InjectionToken<string>('url');
 export class CustomersService extends CommonService<Customers> implements CustomersDAO{
 
   constructor(@Inject(CUSTOMERS_URL_TOKEN) private baseUrl,
-              private http: HttpClient // для выполнения HTTP запросов
+              private http: HttpClient
   ) {
     super(baseUrl, http);
   }

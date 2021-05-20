@@ -15,13 +15,12 @@ export class ReadProductDialogComponent implements OnInit {
 
   constructor(
       private dialogRef: MatDialogRef<ReadProductDialogComponent>,
-      @Inject(MAT_DIALOG_DATA) private data: [Product, string/*, Reviews[]*/],
-      // данные, которые передаем в текущее диалоговое окно
-      private dialog: MatDialog, // для открытия нового диалогового окна (из текущего) - например для подтверждения удаления
+      @Inject(MAT_DIALOG_DATA) private data: [Product, string],
+      private dialog: MatDialog,
       private reviewsService: ReviewsService
   ) { }
 
-  dialogTitle: string; // заголовок окна
+  dialogTitle: string;
   product: Product;
   reviews: Reviews[];
 
@@ -31,7 +30,6 @@ export class ReadProductDialogComponent implements OnInit {
     this.product = this.data[0];
     this.dialogTitle = this.data[1];
     this.findReviews(this.product);
-    // this.reviews = this.data[2];
     console.log(this.reviews);
   }
 
@@ -39,11 +37,6 @@ export class ReadProductDialogComponent implements OnInit {
     console.log('find reviews(): product.id = ' + product.productId);
     this.reviewsSearchValues.product = product.productId;
     this.reviewsService.findReviews(this.reviewsSearchValues).subscribe(result => {
-      // for (const review of this.reviews){
-      //   if (product.productId === review.productId.productId){
-      //     this.reviews = result;
-      //   }
-      // }
       this.reviews = result;
       console.log('find reviews(): reviewsSearchValues.productId = ' + this.reviewsSearchValues.product);
       console.log('find reviews(): ' + this.reviews);
@@ -58,7 +51,7 @@ export class ReadProductDialogComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
 
-      if (!(result)) { // если просто закрыли окно, ничего не нажав
+      if (!(result)) {
         return;
       }
     });
@@ -72,7 +65,7 @@ export class ReadProductDialogComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
 
-      if (!(result)) { // если просто закрыли окно, ничего не нажав
+      if (!(result)) {
         return;
       }
     });

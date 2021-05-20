@@ -11,12 +11,10 @@
             <img (click)="openReadDialog(product)" *ngIf="product.image" src="{{product.image}}" alt="image: kids-shoe" class="goods-image-catalog cursor-pointer">
             <h3 (click)="openReadDialog(product)" class="goods-title cursor-pointer">{{product.productName}}</h3>
             <button (click)="openAddToFavoritesDialog(product)"class="fa fa-heart-o fa-lg heart-icon button-favorites" aria-hidden="true"></button>
-            <!--            <i (click)="openAddToFavoritesDialog(product)" class="fa fa-heart-o fa-lg heart-icon" aria-hidden="true"></i>-->
             <p (click)="openReadDialog(product)" class="goods-description cursor-pointer">{{product.description}}</p>
             <span (click)="openReadDialog(product)" class="goods-price cursor-pointer">{{product.price}} &#8381;</span><br>
             <span *ngIf="product.discountPrice!=0" style="color: #E31E25" class="goods-price">{{product.discountPrice ? product.discountPrice + "&#8381;" : ""}}</span>
             <button (click)="openAddToShoppingCartDialog(product)" class="fa fa-shopping-cart fa-lg shopping-cart-icon button-shopping-cart" aria-hidden="true"></button>
-            <!--            <i class="fa fa-shopping-cart fa-lg shopping-cart-icon" aria-hidden="true"></i>-->
         </a>
         <button class="edit-delete-buttons" mat-icon-button (click)="openEditDialog(product)" *ngIf="showCRUD"><mat-icon aria-hidden="false">edit</mat-icon></button>
         <button class="edit-delete-buttons" mat-icon-button (click)="openDeleteDialog(product)" *ngIf="showCRUD"><mat-icon aria-hidden="false">delete</mat-icon></button>

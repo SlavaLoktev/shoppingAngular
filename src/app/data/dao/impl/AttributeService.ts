@@ -12,7 +12,7 @@ export const ATTRIBUTE_URL_TOKEN = new InjectionToken<string>('url');
 export class AttributeService extends CommonService<Attribute> implements AttributeDAO{
 
   constructor(@Inject(ATTRIBUTE_URL_TOKEN) private baseUrl,
-              private http: HttpClient // для выполнения HTTP запросов
+              private http: HttpClient
   ) {
     super(baseUrl, http);
   }
