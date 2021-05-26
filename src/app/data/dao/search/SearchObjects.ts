@@ -18,6 +18,9 @@ export class ProductSearchValuesWithoutPaging {
 
     productName = '';
     price: number = null;
+
+    departmentId: number = null;
+    categoryId: number = null;
 }
 
 export class ReviewsSearchValues {

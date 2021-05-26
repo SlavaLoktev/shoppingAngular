@@ -12,7 +12,6 @@ export class AddProductDialogComponent implements OnInit {
   constructor(
       private dialogRef: MatDialogRef<AddProductDialogComponent>,
       @Inject(MAT_DIALOG_DATA) private data: [Product, string],
-      // данные, которые передаем в текущее диалоговое окно
       private dialog: MatDialog
   ) { }
 

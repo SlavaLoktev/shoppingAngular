@@ -9,27 +9,12 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarContent">
             <ul class="navbar-nav mr-auto mb-2 navigation align-items-center">
-                <li class="navigation-item">
-                    <a (click)="showCategory('женские')" (mouseenter)="initSearchCategoriesWoman()" routerLink="/womanCatalog" class="navigation-link">Женщины</a>
+                <li *ngFor="let department of departments" class="navigation-item">
+                    <a (click)="showDepartment(department.departmentId)" (mouseenter)="initSearchCategories(department.departmentId)" routerLink="{{department.route}}" class="navigation-link">{{department.departmentName}}</a>
                     <ul class="sub-category-list">
-                        <li routerLink="/womanCatalog" *ngFor="let category of categories"><a (click)="showCategory(category.categoryName + ' женские')" class="sub-category-link">{{category.categoryName}}</a></li>
+                        <li routerLink="{{department.route}}" *ngFor="let category of categories"><a (click)="showCategory(category.categoryId)" class="sub-category-link">{{category.categoryName}}</a></li>
                     </ul>
                 </li>
-                <li class="navigation-item">
-                    <a (click)="showCategory('мужские')" (mouseenter)="initSearchCategoriesMan()" routerLink="/manCatalog" class="navigation-link">Мужчины</a>
-                    <ul class="sub-category-list">
-                        <li routerLink="/manCatalog" *ngFor="let category of categories"><a (click)="showCategory(category.categoryName + ' мужские')" class="sub-category-link">{{category.categoryName}}</a></li>
-                    </ul>
-                </li>
-                <li class="navigation-item">
-                    <a (click)="showCategory('детские')" (mouseenter)="initSearchCategoriesKids()" routerLink="/kidCatalog" class="navigation-link">Дети</a>
-                    <ul class="sub-category-list">
-                        <li routerLink="/kidCatalog" *ngFor="let category of categories"><a (click)="showCategory(category.categoryName + ' детские')" class="sub-category-link">{{category.categoryName}}</a></li>
-                    </ul>
-                </li>
-
-
-
 
 
 

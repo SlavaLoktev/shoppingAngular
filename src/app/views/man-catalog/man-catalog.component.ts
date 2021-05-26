@@ -17,7 +17,9 @@ export class ManCatalogComponent implements OnInit {
 
   showCRUD: boolean;
 
-  selectedCategory = '';
+  selectedCategory = null;
+
+  selectedDepartment = null;
 
   filterTitle = '';
 
@@ -35,15 +37,20 @@ export class ManCatalogComponent implements OnInit {
     console.log(this.showCRUD);
   }
 
-  selectCategory(category: string): void{
+  selectCategory(category?: number): void{
     this.selectedCategory = category;
-    this.productSearchValuesWithoutPaging.productName = category;
+    this.productSearchValuesWithoutPaging.categoryId = category;
+    this.findProductsWithoutPaging(this.productSearchValuesWithoutPaging);
+  }
+
+  selectDepartment(department?: number): void{
+    this.selectedDepartment = department;
+    this.productSearchValuesWithoutPaging.departmentId = department;
     this.findProductsWithoutPaging(this.productSearchValuesWithoutPaging);
   }
 
   findProductsWithoutPaging(productSearchValuesWithoutPaging: ProductSearchValuesWithoutPaging): void{
     this.productSearchValuesWithoutPaging = productSearchValuesWithoutPaging;
-
     this.productService.findProductsWithoutPaging(this.productSearchValuesWithoutPaging).subscribe(result => {
       this.products = result;
       console.log(result);
@@ -51,8 +58,8 @@ export class ManCatalogComponent implements OnInit {
   }
 
   initSearch(): void{
-
     this.productSearchValuesWithoutPaging.productName = this.filterTitle;
+    this.productSearchValuesWithoutPaging.departmentId = 2;
     console.log(this.productSearchValuesWithoutPaging.productName);
     this.productService.findProductsWithoutPaging(this.productSearchValuesWithoutPaging).subscribe(result => {
       this.products = result;
@@ -61,8 +68,7 @@ export class ManCatalogComponent implements OnInit {
   }
 
   initSearchAfterCRUD(): void{
-
-    this.productSearchValuesWithoutPaging.productName = this.filterTitle + ' мужские';
+    this.productSearchValuesWithoutPaging.departmentId = 2;
     console.log(this.productSearchValuesWithoutPaging.productName);
     this.productService.findProductsWithoutPaging(this.productSearchValuesWithoutPaging).subscribe(result => {
       this.products = result;
@@ -90,6 +96,7 @@ export class ManCatalogComponent implements OnInit {
 
   ngOnInit(): void {
     this.leftbar();
+    this.selectDepartment(2);
   }
 
   addProduct(product: Product): void {
